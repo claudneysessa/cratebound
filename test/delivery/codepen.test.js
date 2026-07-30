@@ -63,3 +63,14 @@ test("o jogo permanece lado a lado e cabe em telas estreitas", async () => {
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*max-height:\s*52vh/);
   assert.doesNotMatch(css, /@media \(max-width: 1040px\)[\s\S]*\.play-area\s*{\s*grid-template-columns:\s*1fr;/);
 });
+
+test("a entrega exibe os créditos abaixo do jogo", async () => {
+  const html = await readFile(
+    new URL("../../codepen/index.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(html, /<footer class="credits">/);
+  assert.match(html, /Powered by <strong>Claudney Sarti Sessa<\/strong>/);
+  assert.match(html, /UNIPDS &middot; Engenharia de Software em IA Aplicada/);
+});

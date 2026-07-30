@@ -191,6 +191,9 @@ Em telas estreitas, o tabuleiro e o treinamento continuam lado a lado. O
 layout reduz proporcionalmente espaços, textos e controles para caber na
 página sem cortar o conteúdo.
 
+O rodapé identifica Claudney Sarti Sessa e a UNIPDS — Engenharia de Software
+em IA Aplicada.
+
 ## Como executar os testes
 
 Pré-requisito: Node.js instalado.

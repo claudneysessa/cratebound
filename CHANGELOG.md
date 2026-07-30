@@ -416,3 +416,21 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Executados os 15 testes; todos passaram.
 - Validado no navegador em 420 × 700 px: documento e viewport ficaram com dimensões idênticas, sem rolagem horizontal ou vertical.
 - Confirmadas as 64 casas do tabuleiro após a adaptação responsiva.
+
+### 22:39:08 -03:00
+
+- Iniciado ciclo TDD para incluir os créditos solicitados abaixo do jogo.
+- Criado teste que exige o nome em destaque e a identificação da UNIPDS.
+- Executado `npm test` para a fase vermelha: 15 testes passaram e o teste do rodapé falhou pela ausência dos créditos.
+- Adicionado rodapé com o crédito de Claudney Sarti Sessa e a identificação da UNIPDS.
+- Mantida a grade de amostras em duas colunas no menor breakpoint para liberar a altura ocupada pelo rodapé.
+- Documentados os créditos no `README.md`.
+- Na validação pelo navegador, identificado que o separador central poderia sofrer codificação incorreta fora do CodePen.
+- Criado teste complementar exigindo uma entidade HTML segura para o separador.
+- Executado `npm test` para a segunda fase vermelha: 15 testes passaram e o teste de codificação falhou.
+- Substituído o caractere literal pela entidade HTML `&middot;`.
+
+### 22:40:19 -03:00
+
+- Executados os 16 testes; todos passaram.
+- Validado o rodapé no navegador em 420 × 700 px, com o separador correto e sem rolagem horizontal ou vertical.

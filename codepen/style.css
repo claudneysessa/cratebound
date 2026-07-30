@@ -170,6 +170,16 @@ h1 {
   font-size: .82rem;
 }
 
+.credits {
+  margin-top: 14px;
+  color: #9da69f;
+  font-size: .76rem;
+  line-height: 1.45;
+}
+
+.credits p { margin: 2px 0; }
+.credits strong { color: #dbe5dd; }
+
 .camera-panel {
   display: flex;
   flex-direction: column;
@@ -287,11 +297,12 @@ h1 {
   .camera-copy p:last-child { margin-top: 3px; font-size: .62rem; }
   .camera-panel button { padding: 5px 4px; font-size: .66rem; }
   .sample-instruction, .camera-status { font-size: .62rem; }
-  .sample-grid, .camera-actions { grid-template-columns: 1fr; }
+  .camera-actions { grid-template-columns: 1fr; }
   .camera-reset { grid-column: 1; }
   [data-webcam] { border-radius: 8px; }
   .reset { margin-top: 7px; padding: 6px 12px; font-size: .75rem; }
   .hint { margin-top: 5px; font-size: .65rem; }
+  .credits { margin-top: 5px; font-size: .58rem; line-height: 1.25; }
 }
 
 .won .board {
