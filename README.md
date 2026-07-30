@@ -146,6 +146,12 @@ O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco
 - **Treinamento:** título, vídeo, ativação, coleta, ações e estado seguem uma única coluna sem disputas de largura.
 - **Responsividade:** o divisor é vertical em telas largas e horizontal quando as seções ficam empilhadas.
 
+### Ciclo 15 — movimentos deliberados
+
+- **Vermelho:** o teste mostrou que o mesmo gesto ainda produzia outro movimento após 400 ms.
+- **Verde:** a primeira resposta continua exigindo somente duas previsões, mas a repetição do gesto mantido passou para um segundo.
+- **Resultado esperado:** os comandos horizontais ficam mais fáceis de interromper antes de ultrapassar a célula desejada.
+
 ## Controle pela câmera
 
 O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:

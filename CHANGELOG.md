@@ -332,3 +332,23 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Revisado visualmente o layout lado a lado em 1280 × 900, confirmando frame único, divisor e painel organizado.
 - Restaurado o tamanho normal do navegador após a verificação responsiva.
 - Preparado o commit periódico do ciclo verde.
+
+### 22:09:16 -03:00
+
+- Diagnosticado que um gesto mantido repetia movimentos a cada 400 ms, causando deslocamento contínuo.
+- Iniciado o décimo quinto ciclo de TDD para limitar a repetição dos comandos.
+- Criado primeiro o teste que impede um novo movimento antes de um segundo.
+- Documentado no `README.md` o objetivo de manter resposta inicial rápida com repetição controlada.
+
+### 22:09:48 -03:00
+
+- Executado `npm test` para a fase vermelha do décimo quinto ciclo: 13 testes passaram e o teste de repetição falhou.
+- Aumentado o intervalo padrão entre movimentos mantidos de 400 ms para 1000 ms.
+- Preservados o limite de 60% e as duas previsões necessárias para o primeiro movimento.
+- Atualizadas a versão local, a documentação e a entrega CodePen.
+
+### 22:10:05 -03:00
+
+- Executados os 14 testes após o ajuste; todos passaram.
+- Verificada a sintaxe do JavaScript final do CodePen sem erros.
+- Preparado o commit periódico do ciclo verde.

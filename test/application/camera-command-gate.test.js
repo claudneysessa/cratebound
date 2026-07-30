@@ -26,3 +26,13 @@ test("os padrões aceitam duas previsões com sessenta por cento", () => {
   assert.equal(gate.accept("up", 0.6, 0), null);
   assert.equal(gate.accept("up", 0.6, 20), "up");
 });
+
+test("o gesto mantido não repete o movimento antes de um segundo", () => {
+  const gate = new CameraCommandGate();
+
+  gate.accept("left", 0.9, 0);
+  assert.equal(gate.accept("left", 0.9, 20), "left");
+  assert.equal(gate.accept("left", 0.9, 400), null);
+  assert.equal(gate.accept("left", 0.9, 600), null);
+  assert.equal(gate.accept("left", 0.9, 1020), "left");
+});

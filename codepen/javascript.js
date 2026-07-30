@@ -200,7 +200,7 @@ class CameraCommandGate {
   constructor({
     minimumConfidence = 0.6,
     stablePredictions = 2,
-    intervalMs = 400,
+    intervalMs = 1000,
   } = {}) {
     this.minimumConfidence = minimumConfidence;
     this.stablePredictions = stablePredictions;
