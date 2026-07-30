@@ -127,6 +127,12 @@ O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco
 - **Feedback:** a interface diferencia a previsão observada de um `Comando enviado`, facilitando verificar a ligação com o jogo.
 - **Segurança:** o intervalo de 400 ms foi mantido para impedir movimentos rápidos demais.
 
+### Ciclo 12 — jogo e treino lado a lado
+
+- **Vermelho:** o teste falhou porque tabuleiro e painel ainda eram irmãos em uma única coluna.
+- **Verde:** a área principal agora possui a coluna do jogo e a coluna do treinamento lado a lado.
+- **Responsividade:** abaixo de 1040 px, as colunas voltam a ser empilhadas para preservar o tamanho útil do tabuleiro.
+
 ## Controle pela câmera
 
 O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:

@@ -9,16 +9,19 @@
     <p class="status" data-status aria-live="polite"></p>
   </header>
 
-  <section class="board" data-board aria-label="Sala do jogo"></section>
+  <div class="play-area">
+    <div class="board-column">
+      <section class="board" data-board aria-label="Sala do jogo"></section>
 
-  <section class="controls" aria-label="Controles">
-    <button class="up" data-direction="up" aria-label="Mover para cima">↑</button>
-    <button class="left" data-direction="left" aria-label="Mover para esquerda">←</button>
-    <button class="down" data-direction="down" aria-label="Mover para baixo">↓</button>
-    <button class="right" data-direction="right" aria-label="Mover para direita">→</button>
-  </section>
+      <section class="controls" aria-label="Controles">
+        <button class="up" data-direction="up" aria-label="Mover para cima">↑</button>
+        <button class="left" data-direction="left" aria-label="Mover para esquerda">←</button>
+        <button class="down" data-direction="down" aria-label="Mover para baixo">↓</button>
+        <button class="right" data-direction="right" aria-label="Mover para direita">→</button>
+      </section>
+    </div>
 
-  <section class="camera-panel" aria-labelledby="camera-title">
+    <section class="camera-panel" aria-labelledby="camera-title">
     <div class="camera-copy">
       <p class="eyebrow">TensorFlow.js</p>
       <h2 id="camera-title">Treine seus gestos</h2>
@@ -44,7 +47,8 @@
     <p class="camera-status" data-camera-status aria-live="polite">
       A câmera ainda não foi ativada.
     </p>
-  </section>
+    </section>
+  </div>
 
   <button class="reset" data-reset>Recomeçar</button>
   <p class="hint">Você também pode usar as setas do teclado.</p>

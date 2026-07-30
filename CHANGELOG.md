@@ -269,3 +269,22 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Executados os 11 testes após o ajuste; todos passaram.
 - Verificada a sintaxe do JavaScript final do CodePen sem erros.
 - Preparado o commit periódico do ciclo verde de sensibilidade.
+
+### 21:46:53 -03:00
+
+- Iniciado o décimo segundo ciclo de TDD para colocar treinamento e tabuleiro lado a lado.
+- Criado primeiro o teste estrutural da área principal e da coluna do tabuleiro.
+- Documentado no `README.md` o comportamento responsivo planejado.
+
+### 21:47:26 -03:00
+
+- Executado `npm test` para a fase vermelha do décimo segundo ciclo: 11 testes passaram e o novo teste estrutural falhou.
+- Criadas as estruturas `play-area` e `board-column`.
+- Posicionados tabuleiro e treinamento lado a lado em telas largas.
+- Adicionado o retorno automático para uma coluna abaixo de 1040 px.
+- Atualizadas a versão local, a documentação e a entrega do CodePen.
+
+### 21:47:51 -03:00
+
+- Executados os 12 testes após a reorganização; todos passaram.
+- Preparada a atualização visual e o commit periódico do ciclo verde.
