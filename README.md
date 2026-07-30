@@ -114,6 +114,12 @@ O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco
 - **Modelo:** MobileNet v2 com multiplicador 0,5 extrai características; o classificador possui uma camada oculta de 64 unidades e quatro saídas softmax.
 - **Treinamento:** mínimo de 3 exemplos por classe, 20 épocas e Adam com taxa 0,0001. Recomenda-se coletar de 10 a 20 exemplos variados por direção.
 
+### Ciclo 10 — treinamento guiado
+
+- **Vermelho:** o teste falhou porque a regra de prontidão ainda não existia.
+- **Verde:** uma regra independente exige 10 exemplos nas quatro direções e calcula o progresso total, limitado a 100%.
+- **Integração planejada:** permitir segurar cada botão para coletar continuamente, mostrar contagem `x/10` e conduzir o usuário em quatro etapas claras.
+
 ## Controle pela câmera
 
 O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:
@@ -129,12 +135,12 @@ Imagens e exemplos permanecem na memória do navegador e não são enviados pelo
 
 ### Como treinar
 
-1. Clique em **Ativar câmera** e autorize o acesso.
+1. Clique em **1. Ativar câmera** e autorize o acesso.
 2. Escolha um gesto diferente para cada direção.
-3. Faça o gesto e pressione repetidamente o coletor correspondente, variando levemente posição e expressão.
-4. Colete entre 10 e 20 exemplos para cada uma das quatro direções.
-5. Clique em **Treinar controle** e aguarde as 20 épocas.
-6. Clique em **Jogar com a câmera**.
+3. Faça o gesto e **segure** o botão correspondente até ele mostrar `10/10`.
+4. Repita até as quatro direções ficarem verdes e a barra chegar a 100%.
+5. Clique em **3. Treinar controle** e aguarde as 20 épocas.
+6. Clique em **4. Jogar com a câmera**.
 7. Use **Pausar câmera** para interromper as previsões sem desligar o jogo.
 
 ## Como usar no CodePen

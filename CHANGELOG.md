@@ -206,3 +206,31 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Preparada a verificação visual do painel sem ativar a câmera do usuário.
 - Atualizada a página aberta e confirmada a presença de vídeo, quatro coletores e botões de treinamento e controle.
 - Verificado o carregamento da página sem erros registrados no navegador.
+
+### 21:25:38 -03:00
+
+- Identificada dificuldade de uso no fluxo de treinamento por cliques individuais.
+- Iniciado o décimo ciclo de TDD para tornar o treinamento guiado.
+- Criado primeiro o teste de prontidão com 10 exemplos por direção e cálculo de progresso total.
+- Documentado no `README.md` o fluxo planejado por pressão contínua e etapas.
+
+### 21:26:06 -03:00
+
+- Executado `npm test` para a fase vermelha do décimo ciclo: 9 testes passaram e o novo teste falhou porque a regra ainda não existia.
+- Criada a regra independente de prontidão e progresso do treinamento.
+- Definido o mínimo objetivo de 10 exemplos em cada uma das quatro direções.
+
+### 21:27:28 -03:00
+
+- Substituída a coleta por cliques pela coleta contínua ao segurar cada botão.
+- Adicionadas contagens `x/10`, estado verde por direção e barra de progresso total.
+- Organizados os comandos de câmera em quatro passos numerados.
+- Impedido o treinamento até que as quatro direções atinjam 10 exemplos.
+- Atualizadas a interface local, a documentação e a versão final do CodePen.
+- Executados os 10 testes após a integração; todos passaram.
+- Verificada a sintaxe dos JavaScripts local e do CodePen sem erros.
+
+### 21:27:47 -03:00
+
+- Atualizada a página aberta e confirmado o fluxo visual numerado com contadores e barra de progresso.
+- Preparado o commit periódico do ciclo verde de treinamento guiado.

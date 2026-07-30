@@ -1,5 +1,10 @@
 import { GameSession } from "../application/game-session.js";
 import { CameraCommandGate } from "../application/camera-command-gate.js";
+import {
+  cameraTrainingProgress,
+  hasEnoughCameraSamples,
+  REQUIRED_CAMERA_SAMPLES,
+} from "../application/camera-training-progress.js";
 import { LevelGenerator } from "../domain/level-generator.js";
 import { WebcamController } from "./webcam-controller.js";
 
@@ -96,6 +101,8 @@ window.addEventListener("keydown", (event) => {
 
 const cameraStatus = document.querySelector("[data-camera-status]");
 const cameraToggle = document.querySelector("[data-camera-control]");
+const cameraTrain = document.querySelector("[data-camera-train]");
+const cameraProgress = document.querySelector("[data-camera-progress]");
 const sampleButtons = document.querySelectorAll("[data-sample]");
 const webcamController = new WebcamController({
   video: document.querySelector("[data-webcam]"),
@@ -106,8 +113,18 @@ const webcamController = new WebcamController({
   },
   onSamples: (counts) => {
     sampleButtons.forEach((button) => {
-      button.querySelector("span").textContent = counts[button.dataset.sample];
+      const count = counts[button.dataset.sample];
+      button.querySelector("span").textContent =
+        `${Math.min(count, REQUIRED_CAMERA_SAMPLES)}/${REQUIRED_CAMERA_SAMPLES}`;
+      button.classList.toggle("ready", count >= REQUIRED_CAMERA_SAMPLES);
     });
+    const progress = cameraTrainingProgress(counts);
+    cameraProgress.value = progress;
+    cameraProgress.textContent = `${progress}%`;
+    cameraTrain.disabled = !hasEnoughCameraSamples(counts);
+    cameraStatus.textContent = hasEnoughCameraSamples(counts)
+      ? "Exemplos completos. Agora clique em Treinar controle."
+      : "Segure um botão enquanto mantém o gesto correspondente.";
   },
   onPrediction: (direction, confidence) => {
     cameraStatus.textContent =
@@ -130,17 +147,34 @@ document.querySelector("[data-camera-start]").addEventListener("click", (event) 
     sampleButtons.forEach((button) => {
       button.disabled = false;
     });
-    document.querySelector("[data-camera-train]").disabled = false;
   });
 });
+
+let sampleTimer = null;
+
+function stopCollecting() {
+  clearInterval(sampleTimer);
+  sampleTimer = null;
+}
 
 sampleButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    cameraAction(() => webcamController.addExample(Number(button.dataset.sample)));
+  button.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    stopCollecting();
+    const collect = () => {
+      cameraAction(() =>
+        webcamController.addExample(Number(button.dataset.sample)),
+      );
+    };
+    collect();
+    sampleTimer = setInterval(collect, 160);
   });
 });
 
-document.querySelector("[data-camera-train]").addEventListener("click", () => {
+window.addEventListener("pointerup", stopCollecting);
+window.addEventListener("pointercancel", stopCollecting);
+
+cameraTrain.addEventListener("click", () => {
   cameraAction(async () => {
     await webcamController.train();
     cameraToggle.disabled = false;

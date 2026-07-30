@@ -58,8 +58,8 @@ export class WebcamController {
   }
 
   async train() {
-    if (this.examples.some((items) => items.length < 3)) {
-      throw new Error("Colete ao menos 3 exemplos de cada direção.");
+    if (this.examples.some((items) => items.length < 10)) {
+      throw new Error("Complete 10 exemplos em cada direção.");
     }
 
     this.stopPredicting();
@@ -156,4 +156,3 @@ export class WebcamController {
     }
   }
 }
-

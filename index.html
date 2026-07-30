@@ -30,22 +30,24 @@
         <div class="camera-copy">
           <p class="eyebrow">TensorFlow.js</p>
           <h2 id="camera-title">Treine seus gestos</h2>
-          <p>Ative a câmera e colete entre 10 e 20 exemplos para cada direção.</p>
+          <p>Siga os quatro passos. Segure cada direção enquanto faz o gesto escolhido.</p>
         </div>
 
         <video data-webcam playsinline muted aria-label="Prévia da câmera"></video>
-        <button class="camera-primary" data-camera-start>Ativar câmera</button>
+        <button class="camera-primary" data-camera-start>1. Ativar câmera</button>
 
         <div class="sample-grid" aria-label="Exemplos de movimentos">
-          <button data-sample="0" disabled>↑ Cima <span>0</span></button>
-          <button data-sample="1" disabled>← Esquerda <span>0</span></button>
-          <button data-sample="2" disabled>↓ Baixo <span>0</span></button>
-          <button data-sample="3" disabled>→ Direita <span>0</span></button>
+          <p class="sample-instruction">2. Segure cada botão até completar:</p>
+          <button data-sample="0" disabled>↑ Cima <span>0/10</span></button>
+          <button data-sample="1" disabled>← Esquerda <span>0/10</span></button>
+          <button data-sample="2" disabled>↓ Baixo <span>0/10</span></button>
+          <button data-sample="3" disabled>→ Direita <span>0/10</span></button>
+          <progress data-camera-progress max="100" value="0">0%</progress>
         </div>
 
         <div class="camera-actions">
-          <button data-camera-train disabled>Treinar controle</button>
-          <button data-camera-control disabled>Jogar com a câmera</button>
+          <button data-camera-train disabled>3. Treinar controle</button>
+          <button data-camera-control disabled>4. Jogar com a câmera</button>
         </div>
         <p class="camera-status" data-camera-status aria-live="polite">
           A câmera ainda não foi ativada.

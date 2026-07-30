@@ -230,13 +230,49 @@ h1 {
   gap: 8px;
 }
 
+.sample-instruction {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #d9ddd9;
+  font-size: .84rem;
+  font-weight: 700;
+}
+
 .sample-grid button {
   display: flex;
   justify-content: space-between;
+  user-select: none;
+}
+
+.sample-grid button.ready {
+  border-color: #8de4a2;
+  background: #294533;
 }
 
 .sample-grid span {
   color: #9fd8ad;
+}
+
+[data-camera-progress] {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: #101411;
+}
+
+[data-camera-progress]::-webkit-progress-bar {
+  background: #101411;
+}
+
+[data-camera-progress]::-webkit-progress-value {
+  background: #8de4a2;
+}
+
+[data-camera-progress]::-moz-progress-bar {
+  background: #8de4a2;
 }
 
 .camera-actions {

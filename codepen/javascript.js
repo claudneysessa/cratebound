@@ -232,6 +232,20 @@ class CameraCommandGate {
   }
 }
 
+const REQUIRED_CAMERA_SAMPLES = 10;
+
+function hasEnoughCameraSamples(counts, required = REQUIRED_CAMERA_SAMPLES) {
+  return counts.length === 4 && counts.every((count) => count >= required);
+}
+
+function cameraTrainingProgress(counts, required = REQUIRED_CAMERA_SAMPLES) {
+  const collected = counts.reduce(
+    (total, count) => total + Math.min(count, required),
+    0,
+  );
+  return Math.round((collected / (required * 4)) * 100);
+}
+
 class WebcamController {
   constructor({ video, gate, onDirection, onStatus, onSamples, onPrediction }) {
     this.video = video;
@@ -276,8 +290,8 @@ class WebcamController {
   }
 
   async train() {
-    if (this.examples.some((items) => items.length < 3)) {
-      throw new Error("Colete ao menos 3 exemplos de cada direção.");
+    if (this.examples.some((items) => items.length < 10)) {
+      throw new Error("Complete 10 exemplos em cada direção.");
     }
     this.stopPredicting();
     this.model?.dispose();
@@ -442,6 +456,8 @@ window.addEventListener("keydown", (event) => {
 
 const cameraStatus = document.querySelector("[data-camera-status]");
 const cameraToggle = document.querySelector("[data-camera-control]");
+const cameraTrain = document.querySelector("[data-camera-train]");
+const cameraProgress = document.querySelector("[data-camera-progress]");
 const sampleButtons = document.querySelectorAll("[data-sample]");
 const webcamController = new WebcamController({
   video: document.querySelector("[data-webcam]"),
@@ -450,8 +466,18 @@ const webcamController = new WebcamController({
   onStatus: (message) => { cameraStatus.textContent = message; },
   onSamples: (counts) => {
     sampleButtons.forEach((button) => {
-      button.querySelector("span").textContent = counts[button.dataset.sample];
+      const count = counts[button.dataset.sample];
+      button.querySelector("span").textContent =
+        `${Math.min(count, REQUIRED_CAMERA_SAMPLES)}/${REQUIRED_CAMERA_SAMPLES}`;
+      button.classList.toggle("ready", count >= REQUIRED_CAMERA_SAMPLES);
     });
+    const progress = cameraTrainingProgress(counts);
+    cameraProgress.value = progress;
+    cameraProgress.textContent = `${progress}%`;
+    cameraTrain.disabled = !hasEnoughCameraSamples(counts);
+    cameraStatus.textContent = hasEnoughCameraSamples(counts)
+      ? "Exemplos completos. Agora clique em Treinar controle."
+      : "Segure um botão enquanto mantém o gesto correspondente.";
   },
   onPrediction: (direction, confidence) => {
     cameraStatus.textContent = `${direction} · ${(confidence * 100).toFixed(0)}%`;
@@ -471,17 +497,32 @@ document.querySelector("[data-camera-start]").addEventListener("click", (event) 
   cameraAction(async () => {
     await webcamController.start();
     sampleButtons.forEach((button) => { button.disabled = false; });
-    document.querySelector("[data-camera-train]").disabled = false;
   });
 });
+
+let sampleTimer = null;
+
+function stopCollecting() {
+  clearInterval(sampleTimer);
+  sampleTimer = null;
+}
 
 sampleButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    cameraAction(() => webcamController.addExample(Number(button.dataset.sample)));
+  button.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    stopCollecting();
+    const collect = () => {
+      cameraAction(() => webcamController.addExample(Number(button.dataset.sample)));
+    };
+    collect();
+    sampleTimer = setInterval(collect, 160);
   });
 });
 
-document.querySelector("[data-camera-train]").addEventListener("click", () => {
+window.addEventListener("pointerup", stopCollecting);
+window.addEventListener("pointercancel", stopCollecting);
+
+cameraTrain.addEventListener("click", () => {
   cameraAction(async () => {
     await webcamController.train();
     cameraToggle.disabled = false;
