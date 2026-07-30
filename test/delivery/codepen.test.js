@@ -19,6 +19,8 @@ test("a entrega do CodePen inclui câmera e transferência de aprendizado", asyn
 
   assert.match(html, /tensorflow\/tfjs/);
   assert.match(html, /tensorflow-models\/mobilenet/);
+  assert.match(html, /href="\.\/style\.css"/);
+  assert.match(html, /src="\.\/script\.js"/);
   assert.match(html, /<video[^>]+data-webcam/);
   assert.match(html, /data-camera-start/);
   assert.match(html, /data-camera-train/);

@@ -185,6 +185,8 @@ Imagens e exemplos permanecem na memória do navegador e não são enviados pelo
 5. Não adicione bibliotecas ou preprocessadores.
 6. Execute o Pen e use os botões ou as setas do teclado.
 
+Os mesmos três arquivos também funcionam juntos fora do CodePen: `index.html` carrega `style.css` e `script.js` quando os três permanecem na mesma pasta.
+
 ## Como executar os testes
 
 Pré-requisito: Node.js instalado.

@@ -378,3 +378,22 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Executados os 14 testes; todos passaram.
 - Verificada a sintaxe de `codepen/script.js` sem erros.
 - Preparado o commit periódico da correção da entrega.
+
+### 22:26:43 -03:00
+
+- Diagnosticado que `codepen/index.html` não carregava `style.css` nem `script.js` ao ser aberto fora dos painéis do CodePen.
+- Criado primeiro o teste que exige os dois vínculos relativos no HTML.
+- Documentado que os três arquivos devem funcionar juntos quando mantidos na mesma pasta.
+
+### 22:27:12 -03:00
+
+- Executado `npm test` para a fase vermelha: 13 testes passaram e o vínculo com `style.css` não foi encontrado.
+- Adicionado ao `index.html` o carregamento explícito de `./style.css`.
+- Adicionado ao `index.html` o carregamento explícito e adiado de `./script.js`.
+
+### 22:28:57 -03:00
+
+- Executados os 14 testes; todos passaram após a inclusão dos vínculos no `index.html`.
+- Verificada a sintaxe de `codepen/script.js` sem erros.
+- Validada no navegador local a aplicação do `style.css`, com o tabuleiro em grade e 64 casas.
+- Inspecionado o CodePen aberto: os CDNs do TensorFlow.js e MobileNet estavam presentes, mas a versão salva ainda não carregava `style.css` nem `script.js`.
