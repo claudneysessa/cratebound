@@ -1,10 +1,25 @@
 {
   "name": "caixa-no-buraco",
   "version": "0.1.0",
+  "description": "A webcam-controlled puzzle exploring applied AI, clean architecture and test-driven development.",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "test": "node --test"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claudneysessa/caixa-no-buraco-ai.git"
+  },
+  "keywords": [
+    "applied-ai",
+    "clean-architecture",
+    "tensorflowjs",
+    "test-driven-development",
+    "transfer-learning"
+  ],
+  "author": "Claudney Sarti Sessa"
 }
-

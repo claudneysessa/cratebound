@@ -1,215 +1,205 @@
+<div align="center">
+
 # Caixa no Buraco
 
-Jogo simples de navegador no qual o jogador atravessa uma sala e empurra uma caixa até um buraco, desviando de um obstáculo.
+### A browser puzzle controlled by your keyboard — or by gestures you teach in real time.
 
-## Estado atual
+[![CI](https://github.com/claudneysessa/caixa-no-buraco-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/caixa-no-buraco-ai/actions/workflows/ci.yml)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
+[![Tests](https://img.shields.io/badge/tests-16%20passing-72d892)](#quality-engineering)
+[![No build](https://img.shields.io/badge/build-none-9fe3bd)](#run-locally)
 
-O projeto está no primeiro ciclo de TDD. O teste do caminho mínimo de sucesso falhou primeiro porque o domínio ainda não existia. Em seguida, foi criada somente a implementação necessária para movimentar o jogador, empurrar a caixa alinhada e reconhecer a vitória.
+[Português](README.pt-BR.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
 
-## Objetivo da primeira versão
+![Caixa no Buraco running in the browser](docs/assets/gameplay.gif)
 
-- Exibir uma sala quadrada 8 × 8.
-- Representar o jogador inicialmente como um ponto.
-- Permitir empurrar uma caixa, mas nunca puxá-la.
-- Impedir a passagem pelo obstáculo.
-- Vencer quando a caixa chegar ao buraco.
-- Oferecer os botões cima, esquerda, baixo, direita e Reset.
-- Gerar uma nova fase aleatória após cada vitória.
-- Aumentar gradualmente os obstáculos sem aceitar fases impossíveis.
+</div>
 
-## Entrega final
+## Why this project exists
 
-A versão final será preparada para o CodePen em exatamente três partes:
+Artificial intelligence becomes more valuable when it is treated as an
+engineering component rather than a demo effect.
 
-- `codepen/index.html`: conteúdo do painel **HTML**.
-- `codepen/style.css`: conteúdo do painel **CSS**.
-- `codepen/script.js`: conteúdo do painel **JS**.
+**Caixa no Buraco** explores that idea through a small, visual problem: push a
+box into a hole across randomly generated puzzle rooms. The game can be played
+with regular input controls, then extended with a webcam-based classifier that
+learns four gestures chosen by the player.
 
-Essa entrega não usará módulos, instalação, servidor, banco de dados ou serviço externo. A estrutura modular em `src` continuará sendo a fonte organizada e testável do projeto.
+The interesting part is not only that the model works. It is that the game
+rules remain independent from TensorFlow.js, the webcam, the keyboard and the
+DOM. AI is one input adapter among others — not the architecture itself.
 
-## Arquitetura
+> This repository was created as an applied experiment in a postgraduate
+> Software Engineering with Applied AI program.
 
-O projeto seguirá uma separação simples inspirada em DDD:
+## What makes it different
 
-- **Domínio:** regras da sala, posições, movimentos, caixa, obstáculo, buraco e vitória.
-- **Aplicação:** recebe uma intenção de movimento ou Reset e coordena o domínio.
-- **Interface:** desenha o estado no navegador e converte botões ou teclado em comandos.
+- **Personalized gesture control:** the browser learns the player's own visual
+  gestures instead of relying on a fixed gesture vocabulary.
+- **Transfer learning in the browser:** MobileNet extracts image features and a
+  small dense classifier learns four movement classes locally.
+- **Solvable procedural levels:** generated 8 × 8 rooms are accepted only after
+  a search confirms that the box can reach the hole.
+- **Domain-first design:** movement, collision, victory and level generation do
+  not depend on browser APIs.
+- **Test-driven evolution:** behavior was introduced in short
+  red–green–refactor cycles and recorded in the project history.
+- **Zero build step:** the modular application runs with native ES modules.
 
-O domínio não conhecerá HTML, eventos do navegador ou elementos visuais. Isso mantém as regras testáveis e aplica o princípio de inversão de dependência sem acrescentar estruturas desnecessárias.
+## See it in action
 
-## Método de desenvolvimento
+The animation below is an actual run of the application. The player moves into
+position, pushes the box into the hole and triggers the next level.
 
-Cada comportamento será desenvolvido em um ciclo curto:
+![Gameplay: solving a procedurally generated level](docs/assets/gameplay.gif)
 
-1. Escrever o menor teste.
-2. Executá-lo e confirmar a falha esperada.
-3. Implementar apenas o necessário para fazê-lo passar.
-4. Refatorar sem alterar o comportamento.
-5. Documentar o ciclo e registrar data e hora no changelog.
+<details>
+<summary><strong>Desktop experience</strong></summary>
 
-O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco alinhados, um movimento empurra a caixa para o buraco e encerra a partida com vitória. Obstáculos, limites, Reset e interface serão acrescentados em ciclos posteriores.
+![Desktop layout with the puzzle and gesture-training panel](docs/assets/game-overview.png)
 
-### Ciclo 1 — caminho mínimo de sucesso
+</details>
 
-- **Vermelho:** o teste falhou porque `src/domain/game.js` ainda não existia.
-- **Verde:** foi criado o objeto de domínio `Game`, capaz de mover o jogador, empurrar uma caixa alinhada e informar a vitória.
-- **Limite intencional:** entradas inválidas, paredes, obstáculo e movimentos depois da vitória ainda não pertencem a este ciclo.
+<details>
+<summary><strong>Responsive experience</strong></summary>
 
-### Ciclo 2 — sessão da interface e Reset
+![Responsive layout on a narrow viewport](docs/assets/game-mobile.png)
 
-- **Vermelho:** o teste falhou porque a sessão de aplicação ainda não existia.
-- **Verde:** a sessão agora publica o estado, aceita movimentos e recria o nível no Reset. A primeira interface no navegador observa essa sessão.
-- **Limite intencional:** o tabuleiro visual ainda usará o nível mínimo do primeiro teste; sala completa e obstáculo virão nos próximos ciclos.
+</details>
 
-### Ciclo 3 — limites da sala
+## How the applied AI works
 
-- **Vermelho:** o jogador saiu para coordenadas negativas, demonstrando que o domínio não conhecia os limites.
-- **Verde:** largura e altura passaram a fazer parte do nível; jogador e caixa não podem atravessar as bordas.
-- **Decisão de domínio:** a interface apenas informa o tamanho. A validação continua dentro do jogo.
+1. The player enables the webcam explicitly.
+2. MobileNet v2 runs as a frozen feature extractor.
+3. The player records at least ten examples for each direction.
+4. A compact dense classifier is trained for 20 epochs in the browser.
+5. Predictions pass through a confidence, stability and cooldown gate.
+6. Accepted predictions become the same movement commands used by the keyboard
+   and on-screen buttons.
 
-### Ciclo 4 — formato final do CodePen
+Training samples and predictions stay in browser memory. This project does not
+upload images to an application server.
 
-- **Vermelho:** o teste falhou porque `codepen/javascript.js` ainda não existia.
-- **Verde:** domínio, aplicação e interface foram reunidos em JavaScript clássico, acompanhado pelos painéis HTML e CSS.
-- **Manutenção:** a entrega do CodePen será atualizada junto com cada novo comportamento validado na fonte modular.
+```mermaid
+flowchart LR
+    Webcam["Webcam frames"] --> MobileNet["MobileNet feature extractor"]
+    MobileNet --> Classifier["Personalized classifier"]
+    Classifier --> Gate["Stability and cooldown gate"]
+    Keyboard["Keyboard"] --> Session["Game session"]
+    Buttons["On-screen controls"] --> Session
+    Gate --> Session
+    Session --> Domain["Game domain"]
+    Domain --> View["Browser view"]
+```
 
-### Ciclo 5 — obstáculos
+## Engineering approach
 
-- **Vermelho:** jogador e caixa avançaram sobre a célula ocupada porque o domínio ignorava obstáculos.
-- **Verde:** obstáculos passaram a fazer parte do nível e bloqueiam tanto o jogador quanto a caixa.
-- **Decisão de domínio:** bordas e obstáculos usam a mesma consulta de posição livre.
+The repository uses a deliberately small three-layer design:
 
-### Ciclo 6 — fases aleatórias solucionáveis
+| Layer | Responsibility | Browser-independent |
+| --- | --- | :---: |
+| `domain` | Movement, collisions, victory and solvable level generation | Yes |
+| `application` | Session orchestration, progress and camera-command policy | Yes |
+| `interface` | DOM rendering, keyboard/buttons and webcam integration | No |
 
-- **Vermelho:** o teste falhou porque o gerador e o solucionador ainda não existiam.
-- **Verde:** o gerador cria candidatos 8 × 8 e só aceita uma fase quando a busca encontra a caixa no buraco.
-- **Garantia adicional:** depois de várias tentativas rejeitadas, uma fase de reserva mantém um corredor solucionável e distribui obstáculos fora dele.
-- **Dificuldade:** a quantidade de obstáculos cresce gradualmente até um limite seguro.
+This boundary makes the central rules fast to test and keeps TensorFlow.js from
+spreading through the codebase. Read the
+[architecture notes](docs/ARCHITECTURE.md) for trade-offs and design decisions.
 
-### Ciclo 7 — progressão automática
+## Quality engineering
 
-- **Vermelho:** a sessão publicou um estado incompleto e não solicitou a fase seguinte.
-- **Verde:** a sessão publica dimensões, obstáculos e fase; após a vitória, agenda a troca e solicita o próximo nível.
-- **SOLID:** gerador e agendador são recebidos pela sessão. Ela não depende de `Math.random`, do navegador ou de uma implementação concreta de temporizador.
+The automated suite currently covers:
 
-### Integração visual dos ciclos 5 a 7
+- box pushing and victory;
+- room boundaries and obstacle collisions;
+- solvable procedural generation;
+- session reset and level progression;
+- gesture-training readiness;
+- prediction confidence, stability and repetition limits;
+- parity and responsive constraints of the CodePen delivery.
 
-- A mesa aumentou de 5 × 5 para 8 × 8.
-- Jogador, caixa e buraco foram reduzidos proporcionalmente.
-- Obstáculos receberam representação visual própria.
-- O cabeçalho mostra o número da fase.
-- Ao vencer, a mensagem é exibida e a próxima fase aparece automaticamente.
-- A versão modular e os três painéis do CodePen foram mantidos equivalentes.
+```bash
+npm test
+```
 
-### Ciclo 8 — comandos estáveis da câmera
+Expected result: **16 passing tests** using Node.js' native test runner.
 
-- **Vermelho:** o teste falhou porque o filtro ainda não existia.
-- **Verde:** o filtro libera somente direções com confiança mínima de 80%, três previsões iguais e intervalo de 400 ms.
-- **SOLID:** o filtro não conhece câmera, TensorFlow, jogo ou interface; ele recebe somente direção, confiança e tempo.
+Every push and pull request is checked by GitHub Actions on supported Node.js
+versions.
 
-### Ciclo 9 — transferência de aprendizado no jogo
+## Run locally
 
-- **Vermelho:** o teste falhou porque a entrega ainda não tinha dependências, vídeo nem controles de treinamento.
-- **Verde:** a interface carrega TensorFlow.js e MobileNet, captura exemplos das quatro direções, treina uma rede densa e converte previsões filtradas em movimentos.
-- **Modelo:** MobileNet v2 com multiplicador 0,5 extrai características; o classificador possui uma camada oculta de 64 unidades e quatro saídas softmax.
-- **Treinamento:** mínimo de 3 exemplos por classe, 20 épocas e Adam com taxa 0,0001. Recomenda-se coletar de 10 a 20 exemplos variados por direção.
+Requirements:
 
-### Ciclo 10 — treinamento guiado
+- a modern browser;
+- Node.js 20+ to run the tests;
+- Python 3 or any static HTTP server to serve native ES modules.
 
-- **Vermelho:** o teste falhou porque a regra de prontidão ainda não existia.
-- **Verde:** uma regra independente exige 10 exemplos nas quatro direções e calcula o progresso total, limitado a 100%.
-- **Integração planejada:** permitir segurar cada botão para coletar continuamente, mostrar contagem `x/10` e conduzir o usuário em quatro etapas claras.
+```bash
+git clone https://github.com/claudneysessa/caixa-no-buraco-ai.git
+cd caixa-no-buraco-ai
+python -m http.server 8765
+```
 
-### Ciclo 11 — sensibilidade dos comandos
+Open `http://localhost:8765`.
 
-- **Vermelho:** o teste confirmou que os padrões antigos rejeitavam duas previsões com 60%.
-- **Verde:** o filtro padrão passou de 80% e três previsões para 60% e duas previsões.
-- **Feedback:** a interface diferencia a previsão observada de um `Comando enviado`, facilitando verificar a ligação com o jogo.
-- **Segurança:** o intervalo de 400 ms foi mantido para impedir movimentos rápidos demais.
+No dependency installation or build process is required. Internet access is
+needed on first load to retrieve TensorFlow.js and MobileNet from jsDelivr.
+Webcam access requires an explicit browser permission and works on `localhost`
+or a secure HTTPS origin.
 
-### Ciclo 12 — jogo e treino lado a lado
+## Train your controls
 
-- **Vermelho:** o teste falhou porque tabuleiro e painel ainda eram irmãos em uma única coluna.
-- **Verde:** a área principal agora possui a coluna do jogo e a coluna do treinamento lado a lado.
-- **Responsividade:** abaixo de 1040 px, as colunas voltam a ser empilhadas para preservar o tamanho útil do tabuleiro.
+1. Select **Ativar câmera** and grant camera access.
+2. Choose one distinct gesture for each direction.
+3. Hold each direction button until it reaches `10/10`.
+4. Select **Treinar controle** and wait for the 20 training epochs.
+5. Play with your gestures; pause predictions or start a new training session
+   whenever needed.
 
-### Ciclo 13 — novo treinamento
+You can always fall back to the arrow keys or the on-screen controls.
 
-- **Vermelho:** o teste falhou porque o painel ainda não oferecia o novo treinamento.
-- **Verde:** o botão descarta os tensores dos exemplos e o classificador, zera contadores e progresso e pausa previsões.
-- **Continuidade:** MobileNet e a câmera permanecem ativos, evitando novo carregamento e outra solicitação de permissão.
+## Project structure
 
-### Ciclo 14 — frame integrado
+```text
+.
+├── src/
+│   ├── domain/          # Pure game rules and level generation
+│   ├── application/     # Use-case orchestration and input policies
+│   └── interface/       # Browser and webcam adapters
+├── test/                # Node.js native test suite
+├── codepen/             # Standalone three-panel delivery
+├── docs/                # Architecture and media
+├── index.html
+└── styles.css
+```
 
-- **Vermelho:** a inspeção e o teste mostraram que faltavam frame externo e divisor.
-- **Verde:** tabuleiro e treino agora compartilham fundo, borda, sombra e cantos do mesmo frame.
-- **Treinamento:** título, vídeo, ativação, coleta, ações e estado seguem uma única coluna sem disputas de largura.
-- **Responsividade:** o divisor é vertical em telas largas e horizontal quando as seções ficam empilhadas.
+## Roadmap
 
-### Ciclo 15 — movimentos deliberados
+- Add deterministic seeds so levels can be shared and replayed.
+- Persist optional gesture-training metadata without storing camera frames.
+- Add keyboard-accessible configuration for prediction thresholds.
+- Expand automated browser checks for the complete training workflow.
+- Publish a secure live demo with camera support.
 
-- **Vermelho:** o teste mostrou que o mesmo gesto ainda produzia outro movimento após 400 ms.
-- **Verde:** a primeira resposta continua exigindo somente duas previsões, mas a repetição do gesto mantido passou para um segundo.
-- **Resultado esperado:** os comandos horizontais ficam mais fáceis de interromper antes de ultrapassar a célula desejada.
+## About the author
 
-## Controle pela câmera
+Built by **Claudney Sarti Sessa**, Systems Analyst and Information Systems
+graduate, with postgraduate studies in Big Data & Analytics and Software
+Engineering, currently specializing in Software Engineering with Applied AI.
 
-O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:
+[GitHub profile](https://github.com/claudneysessa)
 
-1. Carregar MobileNet no navegador.
-2. Ativar a webcam somente após ação do usuário.
-3. Coletar exemplos visuais para cima, esquerda, baixo e direita.
-4. Usar as ativações internas do MobileNet como características.
-5. Treinar um pequeno classificador para as quatro direções.
-6. Converter previsões estáveis em movimentos do jogo.
+## Acknowledgements
 
-Imagens e exemplos permanecem na memória do navegador e não são enviados pelo projeto a um servidor.
+The gesture-training approach is inspired by TensorFlow.js transfer-learning
+examples. The implementation, game domain, procedural level validation,
+application boundaries and interface were developed specifically for this
+project.
 
-### Como treinar
+---
 
-1. Clique em **1. Ativar câmera** e autorize o acesso.
-2. Escolha um gesto diferente para cada direção.
-3. Faça o gesto e **segure** o botão correspondente até ele mostrar `10/10`.
-4. Repita até as quatro direções ficarem verdes e a barra chegar a 100%.
-5. Clique em **3. Treinar controle** e aguarde as 20 épocas.
-6. Quando o treino terminar, o controle por câmera começará automaticamente.
-7. Use **Pausar câmera** para interromper as previsões sem desligar o jogo; o mesmo botão permite continuar.
-8. Use **Novo treinamento** para apagar o aprendizado e cadastrar outros gestos mantendo a câmera ligada.
-
-## Como usar no CodePen
-
-1. Crie um novo Pen.
-2. Copie todo o conteúdo de `codepen/index.html` para o painel **HTML**.
-3. Copie todo o conteúdo de `codepen/style.css` para o painel **CSS**.
-4. Copie todo o conteúdo de `codepen/script.js` para o painel **JS**.
-5. Não adicione bibliotecas ou preprocessadores.
-6. Execute o Pen e use os botões ou as setas do teclado.
-
-Os mesmos três arquivos também funcionam juntos fora do CodePen: `index.html` carrega `style.css` e `script.js` quando os três permanecem na mesma pasta.
-
-Em telas estreitas, o tabuleiro e o treinamento continuam lado a lado. O
-layout reduz proporcionalmente espaços, textos e controles para caber na
-página sem cortar o conteúdo.
-
-O rodapé identifica Claudney Sarti Sessa e a UNIPDS — Engenharia de Software
-em IA Aplicada.
-
-## Como executar os testes
-
-Pré-requisito: Node.js instalado.
-
-1. Abra o terminal nesta pasta.
-2. Execute `npm test`.
-3. O teste do caminho mínimo deve passar.
-
-## Como abrir o jogo no navegador
-
-Como a página usa módulos nativos do navegador, abra-a por um servidor local:
-
-1. Abra o terminal nesta pasta.
-2. Execute `python -m http.server 8765`.
-3. Acesse `http://localhost:8765`.
-4. Use os quatro botões ou as setas do teclado.
-5. Pressione **Recomeçar** para restaurar a posição inicial.
-
-Não há dependências para instalar nem processo de compilação.
+<div align="center">
+  <sub>Built to connect applied AI with maintainable software design.</sub>
+</div>

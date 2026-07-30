@@ -2,6 +2,19 @@
 
 Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 
+## 2026-07-30
+
+### 11:02:48 -03:00
+
+- Executados os 16 testes automatizados; todos passaram antes da preparação para publicação.
+- Validada a aplicação no navegador em layouts desktop e responsivo.
+- Capturadas imagens reais da interface e uma demonstração animada de uma fase concluída.
+- Reestruturado o `README.md` em inglês com foco em IA aplicada, decisões de engenharia, execução, qualidade e próximos passos.
+- Criada a versão completa em português no `README.pt-BR.md`.
+- Adicionadas notas de arquitetura, guia de contribuição e política de segurança e privacidade.
+- Configurada integração contínua para Node.js 20, 22 e 24 no GitHub Actions.
+- Atualizados os metadados do projeto no `package.json`.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00

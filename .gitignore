@@ -3,3 +3,4 @@ coverage/
 .DS_Store
 .server.log
 .server.err.log
+docs/assets/demo-frames/
