@@ -26,7 +26,7 @@ changelog update.
 - Route new input mechanisms through the application session.
 - Prefer behavior-focused tests over implementation-detail assertions.
 - Apply abstractions only when they clarify a real boundary.
-- Keep the modular source and CodePen delivery behaviorally aligned.
+- Keep browser concerns at the interface boundary.
 
 ## Pull requests
 

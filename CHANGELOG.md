@@ -53,6 +53,16 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Atualizadas `actions/checkout` e `actions/setup-node` para as versões principais oficiais atuais.
 - Removidos da integração contínua os avisos evitáveis de execução interna em Node.js descontinuado.
 
+### 12:16:55 -03:00
+
+- Criada a nova raiz profissional `E:\GitHub\Cratebound` por clonagem do repositório, preservando todo o histórico Git.
+- Mantida intacta a pasta acadêmica original `D1.M2.A1`.
+- Removida da nova raiz a entrega duplicada da pasta `codepen`.
+- Removidos os seis testes exclusivos da entrega CodePen, que deixaram de representar a estrutura publicada.
+- Atualizadas as documentações em inglês e português para refletir a fonte modular única.
+- Ajustado o total documentado para 10 testes automatizados.
+- Configurado o novo clone para usar os hooks versionados em `.githooks`.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00

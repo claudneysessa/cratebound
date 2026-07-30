@@ -7,7 +7,7 @@
 [![CI](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
-[![Testes](https://img.shields.io/badge/testes-16%20aprovados-72d892)](#engenharia-de-qualidade)
+[![Testes](https://img.shields.io/badge/testes-10%20aprovados-72d892)](#engenharia-de-qualidade)
 
 [Jogar agora](https://claudneysessa.github.io/cratebound/) · [English](README.md) · [Arquitetura](docs/ARCHITECTURE.md) · [Como contribuir](CONTRIBUTING.md)
 
@@ -105,13 +105,13 @@ Os testes automatizados cobrem:
 - reset e progressão das fases;
 - prontidão do treinamento de gestos;
 - confiança, estabilidade e repetição das previsões;
-- paridade e restrições responsivas da versão para CodePen.
+- limites dos comandos da câmera e prontidão do treinamento.
 
 ```bash
 npm test
 ```
 
-Resultado esperado: **16 testes aprovados** com o test runner nativo do Node.js.
+Resultado esperado: **10 testes aprovados** com o test runner nativo do Node.js.
 O GitHub Actions executa a suíte a cada envio e pull request.
 
 ## Executar localmente
@@ -172,7 +172,6 @@ e documentação são trabalhos originais de autoria de Claudney Sarti Sessa.
 │   ├── application/     # Orquestração e políticas de entrada
 │   └── interface/       # Adaptadores do navegador e da webcam
 ├── test/                # Testes nativos do Node.js
-├── codepen/             # Entrega independente em três painéis
 ├── docs/                # Arquitetura e mídia
 ├── index.html
 └── styles.css

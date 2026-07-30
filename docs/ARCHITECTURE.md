@@ -88,8 +88,8 @@ sequenceDiagram
 
 - Domain tests prove movement, collision, victory and solvability.
 - Application tests prove orchestration and command policies.
-- Delivery tests protect the standalone CodePen variant and responsive
-  contracts.
+- The core suite protects domain rules and application policies without a
+  browser runtime.
 
 The neural-network runtime is kept behind an adapter. A future end-to-end layer
 can cover camera permission, training and prediction without slowing the core
@@ -106,12 +106,6 @@ repository small, at the cost of requiring network access on the first load.
 
 Training examples stay in memory and disappear on reload. This supports privacy
 and keeps the experiment stateless, but requires retraining in each session.
-
-### Duplicated CodePen delivery
-
-The `codepen` directory contains a classic JavaScript delivery in addition to
-the modular source. Tests protect key parity contracts, but a generator would
-reduce manual synchronization in a larger project.
 
 ### Procedural search
 

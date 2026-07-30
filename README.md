@@ -7,7 +7,7 @@
 [![CI](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
-[![Tests](https://img.shields.io/badge/tests-16%20passing-72d892)](#quality-engineering)
+[![Tests](https://img.shields.io/badge/tests-10%20passing-72d892)](#quality-engineering)
 [![No build](https://img.shields.io/badge/build-none-9fe3bd)](#run-locally)
 
 [Play live](https://claudneysessa.github.io/cratebound/) · [Português](README.pt-BR.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
@@ -119,13 +119,13 @@ The automated suite currently covers:
 - session reset and level progression;
 - gesture-training readiness;
 - prediction confidence, stability and repetition limits;
-- parity and responsive constraints of the CodePen delivery.
+- camera-command thresholds and training readiness.
 
 ```bash
 npm test
 ```
 
-Expected result: **16 passing tests** using Node.js' native test runner.
+Expected result: **10 passing tests** using Node.js' native test runner.
 
 Every push and pull request is checked by GitHub Actions on supported Node.js
 versions.
@@ -188,7 +188,6 @@ and documentation are original work authored by Claudney Sarti Sessa.
 │   ├── application/     # Use-case orchestration and input policies
 │   └── interface/       # Browser and webcam adapters
 ├── test/                # Node.js native test suite
-├── codepen/             # Standalone three-panel delivery
 ├── docs/                # Architecture and media
 ├── index.html
 └── styles.css
