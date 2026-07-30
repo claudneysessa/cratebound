@@ -234,3 +234,16 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 
 - Atualizada a página aberta e confirmado o fluxo visual numerado com contadores e barra de progresso.
 - Preparado o commit periódico do ciclo verde de treinamento guiado.
+
+### 21:31:43 -03:00
+
+- Corrigido o fluxo no qual o treinamento terminava, mas o controle ainda dependia de outro clique pouco evidente.
+- O controle por câmera agora começa automaticamente quando as 20 épocas terminam.
+- O último botão passou a servir claramente para pausar e retomar a câmera.
+- Atualizadas a interface local, a documentação e a versão do CodePen.
+
+### 21:32:05 -03:00
+
+- Executados os 10 testes após a correção; todos passaram.
+- Verificada a sintaxe dos JavaScripts local e do CodePen sem erros.
+- Preparado o commit periódico da correção do início automático.

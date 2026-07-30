@@ -140,8 +140,8 @@ Imagens e exemplos permanecem na memória do navegador e não são enviados pelo
 3. Faça o gesto e **segure** o botão correspondente até ele mostrar `10/10`.
 4. Repita até as quatro direções ficarem verdes e a barra chegar a 100%.
 5. Clique em **3. Treinar controle** e aguarde as 20 épocas.
-6. Clique em **4. Jogar com a câmera**.
-7. Use **Pausar câmera** para interromper as previsões sem desligar o jogo.
+6. Quando o treino terminar, o controle por câmera começará automaticamente.
+7. Use **Pausar câmera** para interromper as previsões sem desligar o jogo; o mesmo botão permite continuar.
 
 ## Como usar no CodePen
 

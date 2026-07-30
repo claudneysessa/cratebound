@@ -178,6 +178,8 @@ cameraTrain.addEventListener("click", () => {
   cameraAction(async () => {
     await webcamController.train();
     cameraToggle.disabled = false;
+    webcamController.togglePredicting();
+    cameraToggle.textContent = "Pausar câmera";
   });
 });
 
