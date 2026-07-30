@@ -4,6 +4,12 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 
 ## 2026-07-30
 
+### 12:55:59 -03:00
+
+- Corrigida a animação de gameplay que aparentava executar um movimento impossível por ter quadros intermediários omitidos.
+- Regravada uma solução real com 21 comandos válidos e 22 quadros, preservando o estado inicial, cada movimento individual e a vitória.
+- Validado visualmente o último quadro e confirmada a chegada da caixa ao buraco usando somente os comandos disponíveis no jogo.
+
 ### 12:49:18 -03:00
 
 - Reenquadradas as mídias do projeto especificamente para a largura do README no GitHub, removendo o excesso de espaço vazio.
