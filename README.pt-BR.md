@@ -9,7 +9,7 @@
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
 [![Testes](https://img.shields.io/badge/testes-16%20aprovados-72d892)](#engenharia-de-qualidade)
 
-[English](README.md) · [Arquitetura](docs/ARCHITECTURE.md) · [Como contribuir](CONTRIBUTING.md)
+[Jogar agora](https://claudneysessa.github.io/caixa-no-buraco-ai/) · [English](README.md) · [Arquitetura](docs/ARCHITECTURE.md) · [Como contribuir](CONTRIBUTING.md)
 
 ![Caixa no Buraco em execução no navegador](docs/assets/gameplay.gif)
 
@@ -50,6 +50,8 @@ permanecem independentes do TensorFlow.js, da webcam, do teclado e do DOM. A IA
 
 Esta animação foi capturada em uma execução real. O jogador se posiciona,
 empurra a caixa até o buraco e aciona a próxima fase.
+
+[**Abrir a demonstração HTTPS →**](https://claudneysessa.github.io/caixa-no-buraco-ai/)
 
 ![Partida real concluindo uma fase](docs/assets/gameplay.gif)
 
@@ -165,7 +167,7 @@ O teclado e os botões visuais continuam disponíveis.
 - Persistir metadados opcionais do treinamento sem armazenar frames da câmera.
 - Tornar os limites de confiança configuráveis e acessíveis por teclado.
 - Ampliar os testes de navegador do fluxo completo de treinamento.
-- Publicar uma demonstração HTTPS com suporte à câmera.
+- Exibir métricas de desempenho depois de cada treinamento personalizado.
 
 ## Sobre o autor
 

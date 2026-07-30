@@ -10,7 +10,7 @@
 [![Tests](https://img.shields.io/badge/tests-16%20passing-72d892)](#quality-engineering)
 [![No build](https://img.shields.io/badge/build-none-9fe3bd)](#run-locally)
 
-[Português](README.pt-BR.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
+[Play live](https://claudneysessa.github.io/caixa-no-buraco-ai/) · [Português](README.pt-BR.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
 
 ![Caixa no Buraco running in the browser](docs/assets/gameplay.gif)
 
@@ -51,6 +51,8 @@ DOM. AI is one input adapter among others — not the architecture itself.
 
 The animation below is an actual run of the application. The player moves into
 position, pushes the box into the hole and triggers the next level.
+
+[**Open the live HTTPS demo →**](https://claudneysessa.github.io/caixa-no-buraco-ai/)
 
 ![Gameplay: solving a procedurally generated level](docs/assets/gameplay.gif)
 
@@ -181,7 +183,7 @@ You can always fall back to the arrow keys or the on-screen controls.
 - Persist optional gesture-training metadata without storing camera frames.
 - Add keyboard-accessible configuration for prediction thresholds.
 - Expand automated browser checks for the complete training workflow.
-- Publish a secure live demo with camera support.
+- Add model-performance feedback after each personalized training session.
 
 ## About the author
 

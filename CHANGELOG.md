@@ -15,6 +15,13 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Configurada integração contínua para Node.js 20, 22 e 24 no GitHub Actions.
 - Atualizados os metadados do projeto no `package.json`.
 
+### 11:09:04 -03:00
+
+- Criado e publicado o repositório público `claudneysessa/caixa-no-buraco-ai`.
+- Configurados descrição, tópicos, relatório privado de vulnerabilidades e opções enxutas do repositório.
+- Habilitado o GitHub Pages com HTTPS a partir da branch `main`.
+- Adicionado acesso destacado à demonstração ao vivo nos dois idiomas.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00
