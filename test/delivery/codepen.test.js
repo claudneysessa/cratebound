@@ -34,3 +34,13 @@ test("o painel de treino fica ao lado da área do tabuleiro", async () => {
   assert.match(html, /class="play-area"/);
   assert.match(html, /class="board-column"/);
 });
+
+test("o painel permite iniciar um novo treinamento", async () => {
+  const html = await readFile(
+    new URL("../../codepen/html.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(html, /data-camera-reset/);
+  assert.match(html, />Novo treinamento</);
+});

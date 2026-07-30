@@ -102,6 +102,7 @@ window.addEventListener("keydown", (event) => {
 const cameraStatus = document.querySelector("[data-camera-status]");
 const cameraToggle = document.querySelector("[data-camera-control]");
 const cameraTrain = document.querySelector("[data-camera-train]");
+const cameraReset = document.querySelector("[data-camera-reset]");
 const cameraProgress = document.querySelector("[data-camera-progress]");
 const sampleButtons = document.querySelectorAll("[data-sample]");
 const directionNames = {
@@ -156,6 +157,7 @@ document.querySelector("[data-camera-start]").addEventListener("click", (event) 
     sampleButtons.forEach((button) => {
       button.disabled = false;
     });
+    cameraReset.disabled = false;
   });
 });
 
@@ -197,4 +199,10 @@ cameraToggle.addEventListener("click", () => {
     const active = webcamController.togglePredicting();
     cameraToggle.textContent = active ? "Pausar câmera" : "Jogar com a câmera";
   });
+});
+
+cameraReset.addEventListener("click", () => {
+  webcamController.resetTraining();
+  cameraToggle.disabled = true;
+  cameraToggle.textContent = "Pausar câmera";
 });

@@ -288,3 +288,23 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 
 - Executados os 12 testes após a reorganização; todos passaram.
 - Preparada a atualização visual e o commit periódico do ciclo verde.
+
+### 21:48:32 -03:00
+
+- Iniciado o décimo terceiro ciclo de TDD para repetir o treinamento sem recarregar a página.
+- Criado primeiro o teste que exige o botão **Novo treinamento** na entrega CodePen.
+- Documentado no `README.md` o comportamento esperado de limpeza com câmera preservada.
+
+### 21:49:12 -03:00
+
+- Executado `npm test` para a fase vermelha do décimo terceiro ciclo: 12 testes passaram e o novo teste da entrega falhou.
+- Adicionado o botão **Novo treinamento** às interfaces local e CodePen.
+- Implementada a liberação dos tensores de exemplos e do classificador treinado.
+- Zerados contadores, progresso e estado do controle sem desligar a câmera ou recarregar MobileNet.
+- Atualizado o `README.md` com o novo fluxo.
+
+### 21:49:23 -03:00
+
+- Executados os 13 testes após a implementação; todos passaram.
+- Verificada a sintaxe dos controladores local e CodePen sem erros.
+- Preparada a atualização visual e o commit periódico do ciclo verde.

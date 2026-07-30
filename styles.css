@@ -294,6 +294,10 @@ h1 {
   gap: 10px;
 }
 
+.camera-reset {
+  grid-column: 1 / -1;
+}
+
 .camera-status {
   grid-column: 1 / -1;
   min-height: 20px;

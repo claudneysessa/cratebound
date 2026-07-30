@@ -227,6 +227,7 @@ h1 {
 [data-camera-progress]::-webkit-progress-value { background: #8de4a2; }
 [data-camera-progress]::-moz-progress-bar { background: #8de4a2; }
 .camera-actions { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.camera-reset { grid-column: 1 / -1; }
 .camera-status {
   grid-column: 1 / -1;
   min-height: 20px;

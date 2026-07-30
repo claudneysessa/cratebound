@@ -133,6 +133,12 @@ O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco
 - **Verde:** a área principal agora possui a coluna do jogo e a coluna do treinamento lado a lado.
 - **Responsividade:** abaixo de 1040 px, as colunas voltam a ser empilhadas para preservar o tamanho útil do tabuleiro.
 
+### Ciclo 13 — novo treinamento
+
+- **Vermelho:** o teste falhou porque o painel ainda não oferecia o novo treinamento.
+- **Verde:** o botão descarta os tensores dos exemplos e o classificador, zera contadores e progresso e pausa previsões.
+- **Continuidade:** MobileNet e a câmera permanecem ativos, evitando novo carregamento e outra solicitação de permissão.
+
 ## Controle pela câmera
 
 O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:
@@ -155,6 +161,7 @@ Imagens e exemplos permanecem na memória do navegador e não são enviados pelo
 5. Clique em **3. Treinar controle** e aguarde as 20 épocas.
 6. Quando o treino terminar, o controle por câmera começará automaticamente.
 7. Use **Pausar câmera** para interromper as previsões sem desligar o jogo; o mesmo botão permite continuar.
+8. Use **Novo treinamento** para apagar o aprendizado e cadastrar outros gestos mantendo a câmera ligada.
 
 ## Como usar no CodePen
 

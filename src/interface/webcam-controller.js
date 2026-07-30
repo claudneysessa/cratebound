@@ -133,6 +133,16 @@ export class WebcamController {
     this.isPredicting = false;
   }
 
+  resetTraining() {
+    this.stopPredicting();
+    this.examples.flat().forEach((tensor) => tensor.dispose());
+    this.examples = [[], [], [], []];
+    this.model?.dispose();
+    this.model = null;
+    this.onSamples([0, 0, 0, 0]);
+    this.onStatus("Novo treinamento iniciado. Colete outros gestos.");
+  }
+
   async predict() {
     while (this.isPredicting) {
       const features = this.extractFeatures();
