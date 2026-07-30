@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 
 test("a entrega do CodePen usa apenas JavaScript clássico", async () => {
   const javascript = await readFile(
-    new URL("../../codepen/javascript.js", import.meta.url),
+    new URL("../../codepen/script.js", import.meta.url),
     "utf8",
   );
 
@@ -13,7 +13,7 @@ test("a entrega do CodePen usa apenas JavaScript clássico", async () => {
 
 test("a entrega do CodePen inclui câmera e transferência de aprendizado", async () => {
   const html = await readFile(
-    new URL("../../codepen/html.html", import.meta.url),
+    new URL("../../codepen/index.html", import.meta.url),
     "utf8",
   );
 
@@ -27,11 +27,11 @@ test("a entrega do CodePen inclui câmera e transferência de aprendizado", asyn
 
 test("o painel de treino fica ao lado da área do tabuleiro", async () => {
   const html = await readFile(
-    new URL("../../codepen/html.html", import.meta.url),
+    new URL("../../codepen/index.html", import.meta.url),
     "utf8",
   );
   const css = await readFile(
-    new URL("../../codepen/css.css", import.meta.url),
+    new URL("../../codepen/style.css", import.meta.url),
     "utf8",
   );
 
@@ -43,7 +43,7 @@ test("o painel de treino fica ao lado da área do tabuleiro", async () => {
 
 test("o painel permite iniciar um novo treinamento", async () => {
   const html = await readFile(
-    new URL("../../codepen/html.html", import.meta.url),
+    new URL("../../codepen/index.html", import.meta.url),
     "utf8",
   );
 

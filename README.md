@@ -21,9 +21,9 @@ O projeto está no primeiro ciclo de TDD. O teste do caminho mínimo de sucesso 
 
 A versão final será preparada para o CodePen em exatamente três partes:
 
-- `codepen/html.html`: painel HTML.
-- `codepen/css.css`: painel CSS.
-- `codepen/javascript.js`: painel JavaScript.
+- `codepen/index.html`: conteúdo do painel **HTML**.
+- `codepen/style.css`: conteúdo do painel **CSS**.
+- `codepen/script.js`: conteúdo do painel **JS**.
 
 Essa entrega não usará módulos, instalação, servidor, banco de dados ou serviço externo. A estrutura modular em `src` continuará sendo a fonte organizada e testável do projeto.
 
@@ -179,9 +179,9 @@ Imagens e exemplos permanecem na memória do navegador e não são enviados pelo
 ## Como usar no CodePen
 
 1. Crie um novo Pen.
-2. Copie todo o conteúdo de `codepen/html.html` para o painel **HTML**.
-3. Copie todo o conteúdo de `codepen/css.css` para o painel **CSS**.
-4. Copie todo o conteúdo de `codepen/javascript.js` para o painel **JS**.
+2. Copie todo o conteúdo de `codepen/index.html` para o painel **HTML**.
+3. Copie todo o conteúdo de `codepen/style.css` para o painel **CSS**.
+4. Copie todo o conteúdo de `codepen/script.js` para o painel **JS**.
 5. Não adicione bibliotecas ou preprocessadores.
 6. Execute o Pen e use os botões ou as setas do teclado.
 

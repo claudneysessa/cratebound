@@ -352,3 +352,29 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Executados os 14 testes após o ajuste; todos passaram.
 - Verificada a sintaxe do JavaScript final do CodePen sem erros.
 - Preparado o commit periódico do ciclo verde.
+
+### 22:23:35 -03:00
+
+- Conferida a pasta `codepen` e confirmado que os conteúdos existiam, mas os nomes dos arquivos eram pouco claros.
+- Iniciado um ciclo de correção da entrega final para usar exatamente `HTML.html`, `CSS.css` e `JS.js`.
+- Atualizados primeiro os testes e o `README.md` para exigir os novos nomes, preparando a fase vermelha.
+
+### 22:24:11 -03:00
+
+- Executado `npm test` para a fase vermelha: 13 testes passaram e a entrega falhou porque `codepen/JS.js` ainda não existia.
+- Renomeados os três arquivos finais para `HTML.html`, `CSS.css` e `JS.js`.
+- Mantidos os conteúdos completos e a correspondência direta com os painéis do CodePen.
+
+### 22:25:08 -03:00
+
+- Corrigida a tentativa de nomes que dependiam apenas de maiúsculas e minúsculas no Windows.
+- Recuperados os conteúdos de HTML e CSS que haviam desaparecido durante essa tentativa.
+- Adotados os nomes solicitados pelo usuário: `index.html`, `style.css` e `script.js`.
+- Atualizados testes e documentação para apontar exclusivamente para os três nomes finais.
+
+### 22:25:33 -03:00
+
+- Confirmado que a pasta `codepen` contém exatamente os três arquivos finais solicitados.
+- Executados os 14 testes; todos passaram.
+- Verificada a sintaxe de `codepen/script.js` sem erros.
+- Preparado o commit periódico da correção da entrega.
