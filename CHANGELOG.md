@@ -308,3 +308,27 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Executados os 13 testes após a implementação; todos passaram.
 - Verificada a sintaxe dos controladores local e CodePen sem erros.
 - Preparada a atualização visual e o commit periódico do ciclo verde.
+
+### 21:50:28 -03:00
+
+- Inspecionado visualmente o jogo no navegador e identificado que tabuleiro e treino pareciam cartões desconectados.
+- Identificado que a grade interna do treino apertava câmera, instruções e botões.
+- Iniciado o décimo quarto ciclo de TDD com verificações de frame externo e divisor interno.
+- Documentado no `README.md` o novo layout integrado e responsivo.
+
+### 21:51:22 -03:00
+
+- Executado `npm test` para a fase vermelha do décimo quarto ciclo: 12 testes passaram e o teste do frame falhou.
+- Criado um único frame visual atrás do tabuleiro e do treinamento.
+- Adicionado divisor vertical entre as áreas em telas largas.
+- Reorganizado o treino em uma coluna com vídeo amplo e sequência linear de ações.
+- Configurado divisor horizontal e controles em coluna para telas estreitas.
+- Atualizadas a interface local, a documentação e a entrega CodePen.
+
+### 21:52:14 -03:00
+
+- Executados os 13 testes após o redesenho; todos passaram.
+- Revisado visualmente o layout empilhado no tamanho padrão do navegador.
+- Revisado visualmente o layout lado a lado em 1280 × 900, confirmando frame único, divisor e painel organizado.
+- Restaurado o tamanho normal do navegador após a verificação responsiva.
+- Preparado o commit periódico do ciclo verde.

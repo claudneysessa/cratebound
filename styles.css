@@ -27,15 +27,19 @@ body {
 
 .play-area {
   display: grid;
-  grid-template-columns: minmax(0, 680px) minmax(380px, 420px);
-  align-items: start;
+  grid-template-columns: minmax(0, 680px) minmax(320px, 380px);
+  align-items: stretch;
   justify-content: center;
-  gap: 28px;
+  gap: 0;
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid #465149;
+  border-radius: 24px;
+  background: #191f1b;
+  box-shadow: 0 28px 80px #0008;
 }
 
-.board-column {
-  min-width: 0;
-}
+.board-column { min-width: 0; padding-right: 24px; }
 
 .eyebrow {
   margin: 0 0 6px;
@@ -74,13 +78,13 @@ h1 {
   display: grid;
   grid-template-columns: repeat(var(--columns, 8), 1fr);
   aspect-ratio: 1;
-  margin: 24px auto;
+  margin: 0 auto;
   padding: 10px;
   gap: 5px;
   border: 2px solid #4a554d;
   border-radius: 18px;
   background: #202622;
-  box-shadow: 0 24px 70px #0008;
+  box-shadow: 0 18px 48px #0006;
 }
 
 .cell {
@@ -131,6 +135,7 @@ h1 {
   grid-template-columns: repeat(3, 64px);
   justify-content: center;
   gap: 8px;
+  margin-top: 20px;
 }
 
 .controls button,
@@ -178,20 +183,19 @@ h1 {
 }
 
 .camera-panel {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 14px 18px;
-  margin-top: 24px;
-  padding: 20px;
-  border: 1px solid #465149;
-  border-radius: 18px;
-  background: #1d231f;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 4px 0 4px 24px;
+  border: 0;
+  border-left: 1px solid #3f4942;
+  border-radius: 0;
+  background: transparent;
   text-align: left;
 }
 
-.camera-copy {
-  grid-column: 2;
-}
+.camera-copy { order: 0; }
 
 .camera-copy h2 {
   margin: 0;
@@ -205,10 +209,9 @@ h1 {
 }
 
 [data-webcam] {
-  grid-column: 1;
-  grid-row: 1 / span 3;
-  width: 180px;
-  aspect-ratio: 1;
+  order: 1;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   border-radius: 14px;
   background: #0d0f0e;
   object-fit: cover;
@@ -232,11 +235,11 @@ h1 {
 }
 
 .camera-primary {
-  grid-column: 2;
+  order: 2;
 }
 
 .sample-grid {
-  grid-column: 2;
+  order: 3;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
@@ -288,7 +291,7 @@ h1 {
 }
 
 .camera-actions {
-  grid-column: 1 / -1;
+  order: 4;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
@@ -299,7 +302,7 @@ h1 {
 }
 
 .camera-status {
-  grid-column: 1 / -1;
+  order: 5;
   min-height: 20px;
   margin: 0;
   color: #9fd8ad;
@@ -312,30 +315,21 @@ h1 {
     width: min(100%, 680px);
   }
 
-  .play-area {
-    grid-template-columns: 1fr;
+  .play-area { grid-template-columns: 1fr; }
+  .board-column { padding-right: 0; padding-bottom: 24px; }
+  .camera-panel {
+    padding: 24px 4px 4px;
+    border-left: 0;
+    border-top: 1px solid #3f4942;
   }
+  [data-webcam] { width: min(100%, 420px); align-self: center; }
 }
 
 @media (max-width: 560px) {
-  .camera-panel {
-    grid-template-columns: 1fr;
-  }
-
-  .camera-copy,
-  [data-webcam],
-  .camera-primary,
-  .sample-grid,
-  .camera-actions,
-  .camera-status {
-    grid-column: 1;
-  }
-
-  [data-webcam] {
-    grid-row: auto;
-    width: 100%;
-    max-height: 260px;
-  }
+  body { padding: 12px; }
+  .play-area { padding: 10px; border-radius: 18px; }
+  .sample-grid, .camera-actions { grid-template-columns: 1fr; }
+  .camera-reset { grid-column: 1; }
 }
 
 .won .board {

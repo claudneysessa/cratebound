@@ -30,9 +30,15 @@ test("o painel de treino fica ao lado da área do tabuleiro", async () => {
     new URL("../../codepen/html.html", import.meta.url),
     "utf8",
   );
+  const css = await readFile(
+    new URL("../../codepen/css.css", import.meta.url),
+    "utf8",
+  );
 
   assert.match(html, /class="play-area"/);
   assert.match(html, /class="board-column"/);
+  assert.match(css, /\.play-area\s*{[^}]*border:/s);
+  assert.match(css, /\.camera-panel\s*{[^}]*border-left:/s);
 });
 
 test("o painel permite iniciar um novo treinamento", async () => {

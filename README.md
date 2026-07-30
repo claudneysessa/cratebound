@@ -139,6 +139,13 @@ O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco
 - **Verde:** o botão descarta os tensores dos exemplos e o classificador, zera contadores e progresso e pausa previsões.
 - **Continuidade:** MobileNet e a câmera permanecem ativos, evitando novo carregamento e outra solicitação de permissão.
 
+### Ciclo 14 — frame integrado
+
+- **Vermelho:** a inspeção e o teste mostraram que faltavam frame externo e divisor.
+- **Verde:** tabuleiro e treino agora compartilham fundo, borda, sombra e cantos do mesmo frame.
+- **Treinamento:** título, vídeo, ativação, coleta, ações e estado seguem uma única coluna sem disputas de largura.
+- **Responsividade:** o divisor é vertical em telas largas e horizontal quando as seções ficam empilhadas.
+
 ## Controle pela câmera
 
 O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:
