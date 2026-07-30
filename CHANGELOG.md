@@ -63,6 +63,16 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Ajustado o total documentado para 10 testes automatizados.
 - Configurado o novo clone para usar os hooks versionados em `.githooks`.
 
+### 12:30:31 -03:00
+
+- Criado primeiro o teste da apresentação para exigir autoria e contexto acadêmico no rodapé.
+- Confirmada a fase vermelha: 10 testes passaram e o novo teste falhou pela ausência do rodapé na aplicação modular.
+- Adicionado o crédito `Powered by Claudney Sarti Sessa` à aplicação principal.
+- Registrado que o projeto foi desenvolvido para o curso de Engenharia de Software com IA Aplicada da UNIPDS.
+- Estilizado o rodapé para manter legibilidade e hierarquia visual em desktop e telas estreitas.
+- Regenerados os prints desktop e responsivo do README com o crédito visível.
+- Atualizado o total documentado para 11 testes automatizados.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00
