@@ -20,3 +20,9 @@ test("libera apenas previsões confiáveis, estáveis e espaçadas", () => {
   assert.equal(gate.accept("right", 0.95, 560), "right");
 });
 
+test("os padrões aceitam duas previsões com sessenta por cento", () => {
+  const gate = new CameraCommandGate();
+
+  assert.equal(gate.accept("up", 0.6, 0), null);
+  assert.equal(gate.accept("up", 0.6, 20), "up");
+});

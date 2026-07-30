@@ -120,6 +120,13 @@ O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco
 - **Verde:** uma regra independente exige 10 exemplos nas quatro direções e calcula o progresso total, limitado a 100%.
 - **Integração planejada:** permitir segurar cada botão para coletar continuamente, mostrar contagem `x/10` e conduzir o usuário em quatro etapas claras.
 
+### Ciclo 11 — sensibilidade dos comandos
+
+- **Vermelho:** o teste confirmou que os padrões antigos rejeitavam duas previsões com 60%.
+- **Verde:** o filtro padrão passou de 80% e três previsões para 60% e duas previsões.
+- **Feedback:** a interface diferencia a previsão observada de um `Comando enviado`, facilitando verificar a ligação com o jogo.
+- **Segurança:** o intervalo de 400 ms foi mantido para impedir movimentos rápidos demais.
+
 ## Controle pela câmera
 
 O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:

@@ -247,3 +247,25 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Executados os 10 testes após a correção; todos passaram.
 - Verificada a sintaxe dos JavaScripts local e do CodePen sem erros.
 - Preparado o commit periódico da correção do início automático.
+
+### 21:37:07 -03:00
+
+- Diagnosticado que as previsões eram exibidas, mas o filtro padrão impedia os movimentos.
+- Iniciado o décimo primeiro ciclo de TDD para ajustar a sensibilidade.
+- Criado primeiro o teste que exige movimento após duas previsões consecutivas com 60% de confiança.
+- Documentado no `README.md` o ajuste planejado e a preservação do intervalo de segurança.
+
+### 21:37:42 -03:00
+
+- Executado `npm test` para a fase vermelha do décimo primeiro ciclo: 10 testes passaram e o novo teste de sensibilidade falhou.
+- Reduzido o limite padrão de confiança de 80% para 60%.
+- Reduzida a estabilidade necessária de três para duas previsões consecutivas.
+- Mantido o intervalo mínimo de 400 ms entre movimentos.
+- Adicionada a mensagem `Comando enviado` quando uma previsão efetivamente movimenta o jogo.
+- Atualizadas a versão local, a documentação e a entrega do CodePen.
+
+### 21:37:59 -03:00
+
+- Executados os 11 testes após o ajuste; todos passaram.
+- Verificada a sintaxe do JavaScript final do CodePen sem erros.
+- Preparado o commit periódico do ciclo verde de sensibilidade.

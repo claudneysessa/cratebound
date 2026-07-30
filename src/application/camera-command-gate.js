@@ -1,7 +1,7 @@
 export class CameraCommandGate {
   constructor({
-    minimumConfidence = 0.8,
-    stablePredictions = 3,
+    minimumConfidence = 0.6,
+    stablePredictions = 2,
     intervalMs = 400,
   } = {}) {
     this.minimumConfidence = minimumConfidence;
@@ -38,4 +38,3 @@ export class CameraCommandGate {
     return direction;
   }
 }
-

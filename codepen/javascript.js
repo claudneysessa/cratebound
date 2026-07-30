@@ -198,8 +198,8 @@ class GameSession {
 
 class CameraCommandGate {
   constructor({
-    minimumConfidence = 0.8,
-    stablePredictions = 3,
+    minimumConfidence = 0.6,
+    stablePredictions = 2,
     intervalMs = 400,
   } = {}) {
     this.minimumConfidence = minimumConfidence;
@@ -459,10 +459,19 @@ const cameraToggle = document.querySelector("[data-camera-control]");
 const cameraTrain = document.querySelector("[data-camera-train]");
 const cameraProgress = document.querySelector("[data-camera-progress]");
 const sampleButtons = document.querySelectorAll("[data-sample]");
+const directionNames = {
+  up: "cima",
+  left: "esquerda",
+  down: "baixo",
+  right: "direita",
+};
 const webcamController = new WebcamController({
   video: document.querySelector("[data-webcam]"),
   gate: new CameraCommandGate(),
-  onDirection: (direction) => session.move(direction),
+  onDirection: (direction) => {
+    session.move(direction);
+    cameraStatus.textContent = `Comando enviado: ${directionNames[direction]}`;
+  },
   onStatus: (message) => { cameraStatus.textContent = message; },
   onSamples: (counts) => {
     sampleButtons.forEach((button) => {

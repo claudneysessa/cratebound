@@ -104,10 +104,19 @@ const cameraToggle = document.querySelector("[data-camera-control]");
 const cameraTrain = document.querySelector("[data-camera-train]");
 const cameraProgress = document.querySelector("[data-camera-progress]");
 const sampleButtons = document.querySelectorAll("[data-sample]");
+const directionNames = {
+  up: "cima",
+  left: "esquerda",
+  down: "baixo",
+  right: "direita",
+};
 const webcamController = new WebcamController({
   video: document.querySelector("[data-webcam]"),
   gate: new CameraCommandGate(),
-  onDirection: (direction) => session.move(direction),
+  onDirection: (direction) => {
+    session.move(direction);
+    cameraStatus.textContent = `Comando enviado: ${directionNames[direction]}`;
+  },
   onStatus: (message) => {
     cameraStatus.textContent = message;
   },
