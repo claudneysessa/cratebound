@@ -162,6 +162,23 @@ or a secure HTTPS origin.
 
 You can always fall back to the arrow keys or the on-screen controls.
 
+## Technology stack
+
+| Technology | Role in the project |
+| --- | --- |
+| [HTML5](https://developer.mozilla.org/docs/Web/HTML) | Semantic structure, controls, video and accessibility contracts |
+| [CSS3](https://developer.mozilla.org/docs/Web/CSS) | Visual system and responsive layout |
+| [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript) | Domain, application and browser implementation with native ES Modules |
+| [TensorFlow.js 4.22](https://www.tensorflow.org/js) | In-browser training and inference runtime |
+| [MobileNet 2.1.1](https://github.com/tensorflow/tfjs-models/tree/master/mobilenet) | Pre-trained feature extractor used for transfer learning |
+| [Node.js test runner](https://nodejs.org/api/test.html) | Dependency-free automated tests |
+| [GitHub Actions](https://github.com/features/actions) | Continuous integration across supported Node.js versions |
+| [GitHub Pages](https://pages.github.com/) | Free HTTPS hosting for the live application |
+
+These technologies are third-party tools used to build and deliver the project.
+The product concept, game design, source code, architecture, interface, tests
+and documentation are original work authored by Claudney Sarti Sessa.
+
 ## Project structure
 
 ```text
@@ -193,12 +210,12 @@ Engineering, currently specializing in Software Engineering with Applied AI.
 
 [GitHub profile](https://github.com/claudneysessa)
 
-## Acknowledgements
+## Authorship
 
-The gesture-training approach is inspired by TensorFlow.js transfer-learning
-examples. The implementation, game domain, procedural level validation,
-application boundaries and interface were developed specifically for this
-project.
+**Caixa no Buraco is an original project created and developed in full by
+Claudney Sarti Sessa.** It is not a clone, copy or adaptation of another game
+or application. Third-party libraries and platforms are identified in the
+technology stack as tools and retain their respective ownership and licenses.
 
 ---
 

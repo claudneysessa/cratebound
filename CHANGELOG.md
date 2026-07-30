@@ -22,6 +22,13 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Habilitado o GitHub Pages com HTTPS a partir da branch `main`.
 - Adicionado acesso destacado à demonstração ao vivo nos dois idiomas.
 
+### 11:27:10 -03:00
+
+- Adicionada uma seção bilíngue que identifica as tecnologias e o papel de cada ferramenta no projeto.
+- Registrada explicitamente a autoria integral e original de Claudney Sarti Sessa sobre o jogo e toda a solução.
+- Removida a redação que poderia sugerir adaptação de exemplos de terceiros.
+- Mantida a distinção entre autoria do projeto e titularidade das bibliotecas e plataformas utilizadas.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00

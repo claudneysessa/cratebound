@@ -146,6 +146,23 @@ origem HTTPS segura.
 
 O teclado e os botões visuais continuam disponíveis.
 
+## Tecnologias utilizadas
+
+| Tecnologia | Papel no projeto |
+| --- | --- |
+| [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML) | Estrutura semântica, controles, vídeo e contratos de acessibilidade |
+| [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS) | Sistema visual e layout responsivo |
+| [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) | Domínio, aplicação e navegador com ES Modules nativos |
+| [TensorFlow.js 4.22](https://www.tensorflow.org/js) | Treinamento e inferência executados no navegador |
+| [MobileNet 2.1.1](https://github.com/tensorflow/tfjs-models/tree/master/mobilenet) | Extrator de características pré-treinado para transferência de aprendizado |
+| [Test runner do Node.js](https://nodejs.org/api/test.html) | Testes automatizados sem dependências |
+| [GitHub Actions](https://github.com/features/actions) | Integração contínua em versões suportadas do Node.js |
+| [GitHub Pages](https://pages.github.com/) | Hospedagem HTTPS gratuita da aplicação |
+
+Essas tecnologias são ferramentas de terceiros utilizadas na construção e
+entrega do projeto. Conceito, jogo, código-fonte, arquitetura, interface, testes
+e documentação são trabalhos originais de autoria de Claudney Sarti Sessa.
+
 ## Estrutura do projeto
 
 ```text
@@ -177,6 +194,13 @@ de Software, atualmente se especializando em Engenharia de Software com IA
 Aplicada.
 
 [Perfil no GitHub](https://github.com/claudneysessa)
+
+## Autoria
+
+**Caixa no Buraco é um projeto original, integralmente criado e desenvolvido por
+Claudney Sarti Sessa.** Não é clone, cópia ou adaptação de outro jogo ou
+aplicativo. As bibliotecas e plataformas de terceiros estão identificadas na
+seção de tecnologias e preservam suas respectivas titularidades e licenças.
 
 ---
 
