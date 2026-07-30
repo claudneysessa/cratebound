@@ -73,6 +73,19 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Regenerados os prints desktop e responsivo do README com o crédito visível.
 - Atualizado o total documentado para 11 testes automatizados.
 
+### 12:42:55 -03:00
+
+- Criado primeiro um teste para exigir que jogo e câmera permaneçam lado a lado e compactos nos breakpoints.
+- Confirmada a fase vermelha: 11 testes passaram e o novo contrato responsivo falhou com o CSS modular antigo.
+- Transferido para a fonte modular o comportamento compacto que existia somente na antiga entrega CodePen.
+- Adicionado um breakpoint por altura para navegadores largos com menos de 900 px de altura.
+- Compactados tabuleiro, câmera, controles, cabeçalho e créditos sem remover funcionalidades.
+- Validados 1366 × 768, 1024 × 768 e 390 × 844 sem rolagem vertical ou horizontal.
+- Regenerados o print desktop, o print responsivo e o GIF com `Powered by Claudney Sarti Sessa` e o contexto do curso visíveis.
+- Reduzido o GIF de aproximadamente 1,2 MB para cerca de 305 KB.
+- Confirmada uma solução real do tabuleiro durante a nova gravação.
+- Atualizado o total documentado para 12 testes automatizados.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00

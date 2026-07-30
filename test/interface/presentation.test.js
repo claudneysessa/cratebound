@@ -21,3 +21,31 @@ test("exibe autoria e contexto acadêmico no rodapé", async () => {
   assert.match(html, /UNIPDS/);
   assert.match(css, /\.credits\s*{/);
 });
+
+test("mantém jogo e câmera compactos dentro do navegador", async () => {
+  const css = await readFile(
+    new URL("../../styles.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(
+    css,
+    /@media \(max-width: 1040px\)[\s\S]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(140px,\s*\.72fr\)/,
+  );
+  assert.match(
+    css,
+    /@media \(max-width: 560px\)[\s\S]*\.board\s*{[^}]*max-height:\s*52vh/,
+  );
+  assert.doesNotMatch(
+    css,
+    /@media \(max-width: 1040px\)[\s\S]*\.play-area\s*{\s*grid-template-columns:\s*1fr;/,
+  );
+  assert.match(
+    css,
+    /@media \(max-height: 900px\) and \(min-width: 1041px\)[\s\S]*\.board\s*{[^}]*max-height:\s*calc\(100vh - 360px\)/,
+  );
+  assert.match(
+    css,
+    /@media \(max-height: 900px\) and \(min-width: 1041px\)[\s\S]*\[data-webcam\]\s*{\s*max-height:\s*16vh;/,
+  );
+});
