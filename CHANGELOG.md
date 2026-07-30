@@ -155,3 +155,10 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Preparado um commit de marco inicial com o estado completo e verificável do projeto.
 - Definido que cada próximo ciclo verde será encerrado com seu próprio commit e registro no changelog.
 - Executados os testes antes do commit de marco: os 7 testes passaram.
+
+### 21:12:19 -03:00
+
+- Corrigida no `AGENTS.md` a diferença entre autorização para usar Git e obrigação de incluir o changelog.
+- Definido que commits periódicos pertencem ao fluxo normal e não exigem nova autorização a cada ciclo.
+- Mantida a regra independente que bloqueia commits de projeto sem o `CHANGELOG.md`.
+- Executados os 7 testes antes do commit da correção; todos passaram.

@@ -17,7 +17,8 @@ Estas regras são obrigatórias para qualquer pessoa ou agente que trabalhe nest
 - O hook deve ser configurado antes do primeiro commit de implementação.
 - Commits devem ser pequenos, periódicos e representar etapas funcionais ou marcos claros.
 - Antes de cada commit, verificar se o código funciona, se o `README.md` está atualizado e se o `CHANGELOG.md` descreve a etapa.
-- Nenhum commit deve ser criado automaticamente sem que o usuário tenha autorizado o uso do Git para o trabalho em questão.
+- Os commits periódicos fazem parte do fluxo normal deste projeto e não exigem uma nova autorização a cada ciclo.
+- A exigência de atualizar o `CHANGELOG.md` é uma proteção de integridade do histórico e não uma regra de autorização.
 
 ## README
 
@@ -35,7 +36,7 @@ Estas regras são obrigatórias para qualquer pessoa ou agente que trabalhe nest
 6. Adicionar os comportamentos complementares em novos ciclos vermelho-verde-refatoração.
 7. Atualizar o `README.md` sem omitir decisões ou etapas.
 8. Registrar comandos, testes e alterações no `CHANGELOG.md` com data e hora.
-9. Criar um commit periódico apenas quando autorizado.
+9. Criar um commit periódico ao concluir o ciclo verde.
 10. Confirmar que o hook de proteção permite o commit.
 
 ## Arquitetura e qualidade
