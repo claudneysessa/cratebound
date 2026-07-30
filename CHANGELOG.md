@@ -397,3 +397,22 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Verificada a sintaxe de `codepen/script.js` sem erros.
 - Validada no navegador local a aplicação do `style.css`, com o tabuleiro em grade e 64 casas.
 - Inspecionado o CodePen aberto: os CDNs do TensorFlow.js e MobileNet estavam presentes, mas a versão salva ainda não carregava `style.css` nem `script.js`.
+
+### 22:35:47 -03:00
+
+- Iniciado ciclo TDD para impedir cortes do jogo em telas estreitas.
+- Criado teste que exige tabuleiro e treinamento lado a lado, tabuleiro limitado pela altura da tela e ausência do empilhamento vertical anterior.
+- Executado `npm test` para a fase vermelha: 14 testes passaram e o novo teste responsivo falhou porque o painel ainda era empilhado.
+- Substituído o empilhamento por duas colunas fluidas e compactas.
+- Reduzidos espaçamentos, textos, botões e controles em telas estreitas.
+- Limitado o tabuleiro pela altura disponível da tela.
+- Documentado o novo comportamento responsivo no `README.md`.
+- Na validação em 420 × 700 px, identificado excesso vertical de 6 px.
+- Reduzido o preenchimento externo móvel para eliminar a pequena rolagem restante.
+- A segunda medição encontrou sobra de 1 px; removido o preenchimento externo somente no menor breakpoint.
+
+### 22:38:20 -03:00
+
+- Executados os 15 testes; todos passaram.
+- Validado no navegador em 420 × 700 px: documento e viewport ficaram com dimensões idênticas, sem rolagem horizontal ou vertical.
+- Confirmadas as 64 casas do tabuleiro após a adaptação responsiva.

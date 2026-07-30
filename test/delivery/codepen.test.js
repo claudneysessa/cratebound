@@ -52,3 +52,14 @@ test("o painel permite iniciar um novo treinamento", async () => {
   assert.match(html, /data-camera-reset/);
   assert.match(html, />Novo treinamento</);
 });
+
+test("o jogo permanece lado a lado e cabe em telas estreitas", async () => {
+  const css = await readFile(
+    new URL("../../codepen/style.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(css, /@media \(max-width: 1040px\)[\s\S]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(140px,\s*\.72fr\)/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*max-height:\s*52vh/);
+  assert.doesNotMatch(css, /@media \(max-width: 1040px\)[\s\S]*\.play-area\s*{\s*grid-template-columns:\s*1fr;/);
+});

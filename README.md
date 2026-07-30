@@ -187,6 +187,10 @@ Imagens e exemplos permanecem na memória do navegador e não são enviados pelo
 
 Os mesmos três arquivos também funcionam juntos fora do CodePen: `index.html` carrega `style.css` e `script.js` quando os três permanecem na mesma pasta.
 
+Em telas estreitas, o tabuleiro e o treinamento continuam lado a lado. O
+layout reduz proporcionalmente espaços, textos e controles para caber na
+página sem cortar o conteúdo.
+
 ## Como executar os testes
 
 Pré-requisito: Node.js instalado.

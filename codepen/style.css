@@ -245,22 +245,53 @@ h1 {
 }
 
 @media (max-width: 1040px) {
-  .game { width: min(100%, 680px); }
-  .play-area { grid-template-columns: 1fr; }
-  .board-column { padding-right: 0; padding-bottom: 24px; }
-  .camera-panel {
-    padding: 24px 4px 4px;
-    border-left: 0;
-    border-top: 1px solid #3f4942;
+  body { align-items: start; padding: 12px; }
+  .game { width: min(100%, 760px); }
+  .play-area {
+    grid-template-columns: minmax(0, 1fr) minmax(140px, .72fr);
+    gap: 12px;
+    margin-top: 12px;
+    padding: 12px;
   }
-  [data-webcam] { width: min(100%, 420px); align-self: center; }
+  .board-column { padding-right: 12px; }
+  .camera-panel {
+    gap: 9px;
+    padding: 2px 0 2px 12px;
+  }
+  .camera-copy h2 { font-size: 1.05rem; }
+  .camera-copy p:last-child { font-size: .76rem; }
+  .camera-panel button { padding: 7px 8px; font-size: .78rem; }
+  .sample-grid, .camera-actions { gap: 6px; }
+  .sample-instruction, .camera-status { font-size: .72rem; }
+  [data-webcam] { width: 100%; }
 }
 
 @media (max-width: 560px) {
-  body { padding: 12px; }
-  .play-area { padding: 10px; border-radius: 18px; }
+  body { padding: 0; }
+  h1 { font-size: clamp(1.55rem, 8vw, 2rem); }
+  .eyebrow { margin-bottom: 3px; }
+  .stage { margin-top: 6px; padding: 3px 8px; }
+  .status { min-height: 16px; margin: 6px 0; font-size: .75rem; }
+  .play-area { gap: 7px; margin-top: 6px; padding: 7px; border-radius: 14px; }
+  .board-column { padding-right: 7px; }
+  .board { width: 100%; max-height: 52vh; padding: 5px; gap: 2px; border-radius: 10px; }
+  .cell { border-radius: 4px; }
+  .controls {
+    grid-template-columns: repeat(3, 40px);
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .controls button { width: 40px; height: 34px; border-radius: 8px; font-size: 1rem; }
+  .camera-panel { gap: 5px; padding-left: 7px; }
+  .camera-copy h2 { font-size: .9rem; }
+  .camera-copy p:last-child { margin-top: 3px; font-size: .62rem; }
+  .camera-panel button { padding: 5px 4px; font-size: .66rem; }
+  .sample-instruction, .camera-status { font-size: .62rem; }
   .sample-grid, .camera-actions { grid-template-columns: 1fr; }
   .camera-reset { grid-column: 1; }
+  [data-webcam] { border-radius: 8px; }
+  .reset { margin-top: 7px; padding: 6px 12px; font-size: .75rem; }
+  .hint { margin-top: 5px; font-size: .65rem; }
 }
 
 .won .board {
