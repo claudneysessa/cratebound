@@ -4,6 +4,13 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 
 ## 2026-07-30
 
+### 13:51:12 -03:00
+
+- Reorganizada a apresentação bilíngue para destacar pontos fortes de engenharia, desafios e trade-offs como oportunidades de evolução.
+- Adicionada uma seção de evolução já realizada para evidenciar a trajetória técnica entregue pelo projeto.
+- Mantidos os próximos passos como expansão natural das capacidades existentes, sem diminuir o resultado atual.
+- Criado um teste automatizado para preservar essa narrativa profissional nos READMEs em inglês e português.
+
 ### 13:00:04 -03:00
 
 - Identificado que o movimento impossível restante ocorria na transição automática do último quadro para o primeiro ao reiniciar o GIF.

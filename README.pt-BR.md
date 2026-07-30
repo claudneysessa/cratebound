@@ -32,7 +32,7 @@ permanecem independentes do TensorFlow.js, da webcam, do teclado e do DOM. A IA
 > Este repositório foi criado como experimento aplicado durante uma
 > pós-graduação em Engenharia de Software com IA Aplicada.
 
-## Principais diferenciais
+## Pontos fortes de engenharia
 
 - **Gestos personalizados:** o navegador aprende os gestos do jogador em vez de
   impor um vocabulário fixo.
@@ -104,7 +104,7 @@ Os testes automatizados cobrem:
 npm test
 ```
 
-Resultado esperado: **14 testes aprovados** com o test runner nativo do Node.js.
+Resultado esperado: **15 testes aprovados** com o test runner nativo do Node.js.
 O GitHub Actions executa a suíte a cada envio e pull request.
 
 ## Executar localmente
@@ -169,6 +169,29 @@ e documentação são trabalhos originais de autoria de Claudney Sarti Sessa.
 ├── index.html
 └── styles.css
 ```
+
+## Desafios e trade-offs
+
+O projeto prioriza conscientemente uma experiência compacta e executada no
+navegador. Essa escolha abre oportunidades valiosas de engenharia:
+
+- Os gestos personalizados tornam o controle expressivo, enquanto sua qualidade
+  depende naturalmente da iluminação, do enquadramento e dos exemplos gravados.
+- A validação de solução protege a experiência do puzzle, enquanto sementes
+  determinísticas tornarão as fases mais fáceis de compartilhar e reproduzir.
+- ES Modules nativos mantêm o projeto acessível, enquanto testes ponta a ponta
+  podem fortalecer ainda mais a jornada completa de treinamento pela webcam.
+- O treinamento local protege a privacidade das imagens, enquanto um feedback
+  mais claro poderá ajudar o jogador a aprimorar seu classificador.
+
+## Evolução já realizada
+
+- Evolução dos controles de teclado para um adaptador intercambiável por webcam.
+- Isolamento das regras do jogo em relação ao DOM, à câmera e ao TensorFlow.js.
+- Criação de salas procedurais com solução verificada e fallback determinístico.
+- Construção da jogabilidade em ciclos documentados de vermelho–verde–refatoração.
+- Entrega de experiência responsiva, mídias reais, integração contínua e
+  demonstração HTTPS gratuita.
 
 ## Próximos passos
 

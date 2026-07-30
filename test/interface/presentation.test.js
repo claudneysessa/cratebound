@@ -73,3 +73,17 @@ test("encerra a demonstração na vitória sem reiniciar o tabuleiro", async () 
 
   assert.equal(gameplay.includes(Buffer.from("NETSCAPE2.0")), false);
 });
+
+test("apresenta desafios e evolução como sinais de maturidade do projeto", async () => {
+  const [readme, readmePt] = await Promise.all([
+    readFile(new URL("../../README.md", import.meta.url), "utf8"),
+    readFile(new URL("../../README.pt-BR.md", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(readme, /## Engineering strengths/);
+  assert.match(readme, /## Challenges and trade-offs/);
+  assert.match(readme, /## Evolution highlights/);
+  assert.match(readmePt, /## Pontos fortes de engenharia/);
+  assert.match(readmePt, /## Desafios e trade-offs/);
+  assert.match(readmePt, /## Evolução já realizada/);
+});

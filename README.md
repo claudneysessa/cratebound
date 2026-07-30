@@ -7,7 +7,7 @@
 [![CI](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
-[![Tests](https://img.shields.io/badge/tests-14%20passing-72d892)](#quality-engineering)
+[![Tests](https://img.shields.io/badge/tests-15%20passing-72d892)](#quality-engineering)
 [![No build](https://img.shields.io/badge/build-none-9fe3bd)](#run-locally)
 
 [Play live](https://claudneysessa.github.io/cratebound/) · [Português](README.pt-BR.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
@@ -33,7 +33,7 @@ DOM. AI is one input adapter among others — not the architecture itself.
 > This repository was created as an applied experiment in a postgraduate
 > Software Engineering with Applied AI program.
 
-## What makes it different
+## Engineering strengths
 
 - **Personalized gesture control:** the browser learns the player's own visual
   gestures instead of relying on a fixed gesture vocabulary.
@@ -118,7 +118,7 @@ The automated suite currently covers:
 npm test
 ```
 
-Expected result: **14 passing tests** using Node.js' native test runner.
+Expected result: **15 passing tests** using Node.js' native test runner.
 
 Every push and pull request is checked by GitHub Actions on supported Node.js
 versions.
@@ -185,6 +185,29 @@ and documentation are original work authored by Claudney Sarti Sessa.
 ├── index.html
 └── styles.css
 ```
+
+## Challenges and trade-offs
+
+The project deliberately favors a compact, browser-first experience. That
+choice creates valuable engineering opportunities:
+
+- Personalized gestures make control expressive, while their quality naturally
+  depends on lighting, framing and the examples recorded by each player.
+- Solvability validation protects the core puzzle experience, while
+  deterministic seeds would make generated rooms easier to share and reproduce.
+- Native ES Modules keep the project approachable, while broader end-to-end
+  coverage can further strengthen the complete webcam-training journey.
+- Local training protects image privacy, while clearer post-training feedback
+  can help players understand and improve their classifier.
+
+## Evolution highlights
+
+- Evolved from keyboard interaction to an interchangeable webcam input adapter.
+- Isolated game rules from the DOM, camera and TensorFlow.js integrations.
+- Introduced verified-solvable procedural rooms with a deterministic fallback.
+- Built the gameplay through documented red–green–refactor cycles.
+- Added a responsive browser experience, real demonstration media, continuous
+  integration and a free HTTPS demo.
 
 ## Roadmap
 
