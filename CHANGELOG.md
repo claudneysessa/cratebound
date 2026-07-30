@@ -29,6 +29,14 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Removida a redação que poderia sugerir adaptação de exemplos de terceiros.
 - Mantida a distinção entre autoria do projeto e titularidade das bibliotecas e plataformas utilizadas.
 
+### 12:06:53 -03:00
+
+- Iniciado o rebranding integral do jogo para `Cratebound`.
+- Atualizados o título da aplicação modular, a versão CodePen, os metadados e a documentação bilíngue.
+- Adotadas as chamadas `Teach the gesture. Guide the crate.` e `Ensine o gesto. Conduza a caixa.`.
+- Preparados os novos endereços do repositório e do GitHub Pages.
+- Preservado o caminho acadêmico local `D1.M2.A1` para não quebrar a organização da disciplina.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00

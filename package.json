@@ -1,5 +1,5 @@
 {
-  "name": "caixa-no-buraco",
+  "name": "cratebound",
   "version": "0.1.0",
   "description": "A webcam-controlled puzzle exploring applied AI, clean architecture and test-driven development.",
   "private": true,
@@ -12,9 +12,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/claudneysessa/caixa-no-buraco-ai.git"
+    "url": "https://github.com/claudneysessa/cratebound.git"
   },
-  "homepage": "https://claudneysessa.github.io/caixa-no-buraco-ai/",
+  "homepage": "https://claudneysessa.github.io/cratebound/",
   "keywords": [
     "applied-ai",
     "clean-architecture",

@@ -1,17 +1,17 @@
 <div align="center">
 
-# Caixa no Buraco
+# Cratebound
 
-### Um puzzle no navegador controlado pelo teclado — ou por gestos ensinados por você em tempo real.
+### Ensine o gesto. Conduza a caixa.
 
-[![CI](https://github.com/claudneysessa/caixa-no-buraco-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/caixa-no-buraco-ai/actions/workflows/ci.yml)
+[![CI](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
 [![Testes](https://img.shields.io/badge/testes-16%20aprovados-72d892)](#engenharia-de-qualidade)
 
-[Jogar agora](https://claudneysessa.github.io/caixa-no-buraco-ai/) · [English](README.md) · [Arquitetura](docs/ARCHITECTURE.md) · [Como contribuir](CONTRIBUTING.md)
+[Jogar agora](https://claudneysessa.github.io/cratebound/) · [English](README.md) · [Arquitetura](docs/ARCHITECTURE.md) · [Como contribuir](CONTRIBUTING.md)
 
-![Caixa no Buraco em execução no navegador](docs/assets/gameplay.gif)
+![Cratebound em execução no navegador](docs/assets/gameplay.gif)
 
 </div>
 
@@ -20,7 +20,7 @@
 Inteligência artificial gera mais valor quando é tratada como um componente de
 engenharia, e não apenas como um efeito de demonstração.
 
-**Caixa no Buraco** investiga essa ideia com um problema pequeno e visual:
+**Cratebound** investiga essa ideia com um problema pequeno e visual:
 empurrar uma caixa até um buraco em salas geradas proceduralmente. Além dos
 controles convencionais, o jogador pode treinar no próprio navegador um
 classificador que aprende quatro gestos escolhidos por ele.
@@ -51,7 +51,7 @@ permanecem independentes do TensorFlow.js, da webcam, do teclado e do DOM. A IA
 Esta animação foi capturada em uma execução real. O jogador se posiciona,
 empurra a caixa até o buraco e aciona a próxima fase.
 
-[**Abrir a demonstração HTTPS →**](https://claudneysessa.github.io/caixa-no-buraco-ai/)
+[**Abrir a demonstração HTTPS →**](https://claudneysessa.github.io/cratebound/)
 
 ![Partida real concluindo uma fase](docs/assets/gameplay.gif)
 
@@ -123,8 +123,8 @@ Pré-requisitos:
 - Python 3 ou qualquer servidor HTTP estático para servir os módulos nativos.
 
 ```bash
-git clone https://github.com/claudneysessa/caixa-no-buraco-ai.git
-cd caixa-no-buraco-ai
+git clone https://github.com/claudneysessa/cratebound.git
+cd cratebound
 python -m http.server 8765
 ```
 
@@ -197,7 +197,7 @@ Aplicada.
 
 ## Autoria
 
-**Caixa no Buraco é um projeto original, integralmente criado e desenvolvido por
+**Cratebound é um projeto original, integralmente criado e desenvolvido por
 Claudney Sarti Sessa.** Não é clone, cópia ou adaptação de outro jogo ou
 aplicativo. As bibliotecas e plataformas de terceiros estão identificadas na
 seção de tecnologias e preservam suas respectivas titularidades e licenças.

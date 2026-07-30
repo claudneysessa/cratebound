@@ -16,6 +16,6 @@ Security fixes are applied to the latest version on the default branch.
 ## Reporting a vulnerability
 
 Please report suspected vulnerabilities privately through
-[GitHub's private vulnerability reporting](https://github.com/claudneysessa/caixa-no-buraco-ai/security/advisories/new).
+[GitHub's private vulnerability reporting](https://github.com/claudneysessa/cratebound/security/advisories/new).
 Include reproduction steps, affected browsers and the potential impact. Avoid
 opening a public issue before the report has been reviewed.

@@ -1,18 +1,18 @@
 <div align="center">
 
-# Caixa no Buraco
+# Cratebound
 
-### A browser puzzle controlled by your keyboard — or by gestures you teach in real time.
+### Teach the gesture. Guide the crate.
 
-[![CI](https://github.com/claudneysessa/caixa-no-buraco-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/caixa-no-buraco-ai/actions/workflows/ci.yml)
+[![CI](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
 [![Tests](https://img.shields.io/badge/tests-16%20passing-72d892)](#quality-engineering)
 [![No build](https://img.shields.io/badge/build-none-9fe3bd)](#run-locally)
 
-[Play live](https://claudneysessa.github.io/caixa-no-buraco-ai/) · [Português](README.pt-BR.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
+[Play live](https://claudneysessa.github.io/cratebound/) · [Português](README.pt-BR.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
 
-![Caixa no Buraco running in the browser](docs/assets/gameplay.gif)
+![Cratebound running in the browser](docs/assets/gameplay.gif)
 
 </div>
 
@@ -21,8 +21,8 @@
 Artificial intelligence becomes more valuable when it is treated as an
 engineering component rather than a demo effect.
 
-**Caixa no Buraco** explores that idea through a small, visual problem: push a
-box into a hole across randomly generated puzzle rooms. The game can be played
+**Cratebound** explores that idea through a small, visual problem: push a box
+into its destination across randomly generated puzzle rooms. The game can be played
 with regular input controls, then extended with a webcam-based classifier that
 learns four gestures chosen by the player.
 
@@ -52,7 +52,7 @@ DOM. AI is one input adapter among others — not the architecture itself.
 The animation below is an actual run of the application. The player moves into
 position, pushes the box into the hole and triggers the next level.
 
-[**Open the live HTTPS demo →**](https://claudneysessa.github.io/caixa-no-buraco-ai/)
+[**Open the live HTTPS demo →**](https://claudneysessa.github.io/cratebound/)
 
 ![Gameplay: solving a procedurally generated level](docs/assets/gameplay.gif)
 
@@ -139,8 +139,8 @@ Requirements:
 - Python 3 or any static HTTP server to serve native ES modules.
 
 ```bash
-git clone https://github.com/claudneysessa/caixa-no-buraco-ai.git
-cd caixa-no-buraco-ai
+git clone https://github.com/claudneysessa/cratebound.git
+cd cratebound
 python -m http.server 8765
 ```
 
@@ -212,7 +212,7 @@ Engineering, currently specializing in Software Engineering with Applied AI.
 
 ## Authorship
 
-**Caixa no Buraco is an original project created and developed in full by
+**Cratebound is an original project created and developed in full by
 Claudney Sarti Sessa.** It is not a clone, copy or adaptation of another game
 or application. Third-party libraries and platforms are identified in the
 technology stack as tools and retain their respective ownership and licenses.

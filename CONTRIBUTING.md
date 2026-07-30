@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for considering a contribution to **Caixa no Buraco**.
+Thank you for considering a contribution to **Cratebound**.
 
 ## Development workflow
 

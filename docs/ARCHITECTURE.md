@@ -1,7 +1,7 @@
 # Architecture
 
-This document describes the boundaries and trade-offs behind **Caixa no
-Buraco**. It complements the product-oriented overview in the main README.
+This document describes the boundaries and trade-offs behind **Cratebound**. It
+complements the product-oriented overview in the main README.
 
 ## Design goals
 
