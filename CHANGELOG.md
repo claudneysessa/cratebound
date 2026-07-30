@@ -37,6 +37,17 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Preparados os novos endereços do repositório e do GitHub Pages.
 - Preservado o caminho acadêmico local `D1.M2.A1` para não quebrar a organização da disciplina.
 
+### 12:12:15 -03:00
+
+- Regenerados o GIF de gameplay e os prints desktop e responsivo com a identidade `Cratebound`.
+- Confirmada uma solução real do tabuleiro durante a gravação da nova animação.
+- Executados os 16 testes automatizados; todos passaram com o novo nome do pacote.
+- Renomeado o repositório público para `claudneysessa/cratebound` e atualizado o remoto local.
+- Atualizados descrição, tópicos e endereço oficial do projeto no GitHub.
+- Recriado e validado o GitHub Pages em `https://claudneysessa.github.io/cratebound/`.
+- Confirmados o título e o cabeçalho `Cratebound` na publicação HTTPS, sem erros no console.
+- Confirmadas com sucesso a matriz de integração contínua e a implantação do GitHub Pages.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00
