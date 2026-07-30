@@ -7,12 +7,12 @@
 [![CI](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
-[![Tests](https://img.shields.io/badge/tests-12%20passing-72d892)](#quality-engineering)
+[![Tests](https://img.shields.io/badge/tests-13%20passing-72d892)](#quality-engineering)
 [![No build](https://img.shields.io/badge/build-none-9fe3bd)](#run-locally)
 
 [Play live](https://claudneysessa.github.io/cratebound/) · [Português](README.pt-BR.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
 
-![Cratebound running in the browser](docs/assets/gameplay.gif)
+![Cratebound: applied AI puzzle with gesture training](docs/assets/cratebound-hero.png)
 
 </div>
 
@@ -54,19 +54,12 @@ position, pushes the box into the hole and triggers the next level.
 
 [**Open the live HTTPS demo →**](https://claudneysessa.github.io/cratebound/)
 
-![Gameplay: solving a procedurally generated level](docs/assets/gameplay.gif)
-
-<details>
-<summary><strong>Desktop experience</strong></summary>
-
-![Desktop layout with the puzzle and gesture-training panel](docs/assets/game-overview.png)
-
-</details>
+![Gameplay: solving a procedurally generated level](docs/assets/cratebound-gameplay.gif)
 
 <details>
 <summary><strong>Responsive experience</strong></summary>
 
-![Responsive layout on a narrow viewport](docs/assets/game-mobile.png)
+![Responsive layout on a narrow viewport](docs/assets/cratebound-mobile.png)
 
 </details>
 
@@ -125,7 +118,7 @@ The automated suite currently covers:
 npm test
 ```
 
-Expected result: **12 passing tests** using Node.js' native test runner.
+Expected result: **13 passing tests** using Node.js' native test runner.
 
 Every push and pull request is checked by GitHub Actions on supported Node.js
 versions.

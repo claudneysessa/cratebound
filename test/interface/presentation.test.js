@@ -49,3 +49,19 @@ test("mantém jogo e câmera compactos dentro do navegador", async () => {
     /@media \(max-height: 900px\) and \(min-width: 1041px\)[\s\S]*\[data-webcam\]\s*{\s*max-height:\s*16vh;/,
   );
 });
+
+test("usa mídias próprias para a vitrine do GitHub sem duplicar o GIF", async () => {
+  const readme = await readFile(
+    new URL("../../README.md", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(readme, /docs\/assets\/cratebound-hero\.png/);
+  assert.match(readme, /docs\/assets\/cratebound-gameplay\.gif/);
+  assert.match(readme, /docs\/assets\/cratebound-mobile\.png/);
+  assert.equal(
+    readme.match(/docs\/assets\/cratebound-gameplay\.gif/g)?.length,
+    1,
+  );
+  assert.doesNotMatch(readme, /docs\/assets\/gameplay\.gif/);
+});

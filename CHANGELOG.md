@@ -4,6 +4,14 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 
 ## 2026-07-30
 
+### 12:49:18 -03:00
+
+- Reenquadradas as mídias do projeto especificamente para a largura do README no GitHub, removendo o excesso de espaço vazio.
+- Substituído o GIF duplicado no topo por uma imagem hero estática e mantida uma única animação na seção de demonstração.
+- Regenerados o hero, o GIF e o print responsivo com o rodapé de autoria e o contexto acadêmico visíveis.
+- Adicionado um teste automatizado para proteger os caminhos das mídias e impedir a duplicação do GIF na apresentação.
+- Atualizados os dois READMEs e os badges para refletirem os 13 testes automatizados.
+
 ### 11:02:48 -03:00
 
 - Executados os 16 testes automatizados; todos passaram antes da preparação para publicação.
