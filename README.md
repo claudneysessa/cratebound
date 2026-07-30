@@ -107,6 +107,13 @@ O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco
 - **Verde:** o filtro libera somente direções com confiança mínima de 80%, três previsões iguais e intervalo de 400 ms.
 - **SOLID:** o filtro não conhece câmera, TensorFlow, jogo ou interface; ele recebe somente direção, confiança e tempo.
 
+### Ciclo 9 — transferência de aprendizado no jogo
+
+- **Vermelho:** o teste falhou porque a entrega ainda não tinha dependências, vídeo nem controles de treinamento.
+- **Verde:** a interface carrega TensorFlow.js e MobileNet, captura exemplos das quatro direções, treina uma rede densa e converte previsões filtradas em movimentos.
+- **Modelo:** MobileNet v2 com multiplicador 0,5 extrai características; o classificador possui uma camada oculta de 64 unidades e quatro saídas softmax.
+- **Treinamento:** mínimo de 3 exemplos por classe, 20 épocas e Adam com taxa 0,0001. Recomenda-se coletar de 10 a 20 exemplos variados por direção.
+
 ## Controle pela câmera
 
 O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:
@@ -119,6 +126,16 @@ O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:
 6. Converter previsões estáveis em movimentos do jogo.
 
 Imagens e exemplos permanecem na memória do navegador e não são enviados pelo projeto a um servidor.
+
+### Como treinar
+
+1. Clique em **Ativar câmera** e autorize o acesso.
+2. Escolha um gesto diferente para cada direção.
+3. Faça o gesto e pressione repetidamente o coletor correspondente, variando levemente posição e expressão.
+4. Colete entre 10 e 20 exemplos para cada uma das quatro direções.
+5. Clique em **Treinar controle** e aguarde as 20 épocas.
+6. Clique em **Jogar com a câmera**.
+7. Use **Pausar câmera** para interromper as previsões sem desligar o jogo.
 
 ## Como usar no CodePen
 

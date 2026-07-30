@@ -1,5 +1,7 @@
 import { GameSession } from "../application/game-session.js";
+import { CameraCommandGate } from "../application/camera-command-gate.js";
 import { LevelGenerator } from "../domain/level-generator.js";
+import { WebcamController } from "./webcam-controller.js";
 
 const generator = new LevelGenerator();
 const board = document.querySelector("[data-board]");
@@ -90,4 +92,64 @@ window.addEventListener("keydown", (event) => {
 
   event.preventDefault();
   session.move(direction);
+});
+
+const cameraStatus = document.querySelector("[data-camera-status]");
+const cameraToggle = document.querySelector("[data-camera-control]");
+const sampleButtons = document.querySelectorAll("[data-sample]");
+const webcamController = new WebcamController({
+  video: document.querySelector("[data-webcam]"),
+  gate: new CameraCommandGate(),
+  onDirection: (direction) => session.move(direction),
+  onStatus: (message) => {
+    cameraStatus.textContent = message;
+  },
+  onSamples: (counts) => {
+    sampleButtons.forEach((button) => {
+      button.querySelector("span").textContent = counts[button.dataset.sample];
+    });
+  },
+  onPrediction: (direction, confidence) => {
+    cameraStatus.textContent =
+      `${direction} · ${(confidence * 100).toFixed(0)}%`;
+  },
+});
+
+async function cameraAction(action) {
+  try {
+    await action();
+  } catch (error) {
+    cameraStatus.textContent = error.message;
+  }
+}
+
+document.querySelector("[data-camera-start]").addEventListener("click", (event) => {
+  event.currentTarget.disabled = true;
+  cameraAction(async () => {
+    await webcamController.start();
+    sampleButtons.forEach((button) => {
+      button.disabled = false;
+    });
+    document.querySelector("[data-camera-train]").disabled = false;
+  });
+});
+
+sampleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    cameraAction(() => webcamController.addExample(Number(button.dataset.sample)));
+  });
+});
+
+document.querySelector("[data-camera-train]").addEventListener("click", () => {
+  cameraAction(async () => {
+    await webcamController.train();
+    cameraToggle.disabled = false;
+  });
+});
+
+cameraToggle.addEventListener("click", () => {
+  cameraAction(() => {
+    const active = webcamController.togglePredicting();
+    cameraToggle.textContent = active ? "Pausar câmera" : "Jogar com a câmera";
+  });
 });

@@ -11,3 +11,16 @@ test("a entrega do CodePen usa apenas JavaScript clássico", async () => {
   assert.doesNotMatch(javascript, /^\s*(import|export)\s/m);
 });
 
+test("a entrega do CodePen inclui câmera e transferência de aprendizado", async () => {
+  const html = await readFile(
+    new URL("../../codepen/html.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(html, /tensorflow\/tfjs/);
+  assert.match(html, /tensorflow-models\/mobilenet/);
+  assert.match(html, /<video[^>]+data-webcam/);
+  assert.match(html, /data-camera-start/);
+  assert.match(html, /data-camera-train/);
+  assert.equal((html.match(/data-sample=/g) ?? []).length, 4);
+});

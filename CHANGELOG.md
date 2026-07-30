@@ -181,3 +181,28 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 
 - Executado `npm test` para a fase verde do oitavo ciclo: os 8 testes passaram.
 - Preparado o commit periódico do filtro de comandos antes da integração com TensorFlow.js.
+
+### 21:15:37 -03:00
+
+- Criado o commit periódico `8f86504` para o filtro de comandos da câmera.
+- Iniciado o nono ciclo de TDD para integrar TensorFlow.js e MobileNet.
+- Criado primeiro o teste da entrega CodePen, exigindo dependências, vídeo, ativação, quatro coletores e treinamento.
+- Documentado no `README.md` o objetivo da integração real.
+
+### 21:17:40 -03:00
+
+- Executado `npm test` para a fase vermelha do nono ciclo: 8 testes passaram e o teste da entrega com câmera falhou.
+- Adicionados TensorFlow.js 4.22.0 e MobileNet 2.1.1 à página local e à entrega CodePen.
+- Criado o controlador da webcam para ativação, coleta de exemplos, extração de características, treinamento e previsão contínua.
+- Criado o painel visual com prévia, quatro coletores, contadores, treinamento, ativação e pausa.
+- Conectadas previsões estáveis aos mesmos comandos da sessão usados por teclado e botões.
+- Atualizados os três painéis do CodePen com a integração completa.
+- Documentados modelo, parâmetros e todas as etapas de treinamento no `README.md`.
+
+### 21:18:22 -03:00
+
+- Executado `npm test` para a fase verde do nono ciclo: os 9 testes passaram.
+- Verificada a sintaxe da interface modular e do JavaScript final do CodePen sem erros.
+- Preparada a verificação visual do painel sem ativar a câmera do usuário.
+- Atualizada a página aberta e confirmada a presença de vídeo, quatro coletores e botões de treinamento e controle.
+- Verificado o carregamento da página sem erros registrados no navegador.

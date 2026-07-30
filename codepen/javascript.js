@@ -196,6 +196,171 @@ class GameSession {
   }
 }
 
+class CameraCommandGate {
+  constructor({
+    minimumConfidence = 0.8,
+    stablePredictions = 3,
+    intervalMs = 400,
+  } = {}) {
+    this.minimumConfidence = minimumConfidence;
+    this.stablePredictions = stablePredictions;
+    this.intervalMs = intervalMs;
+    this.lastDirection = null;
+    this.repetitions = 0;
+    this.lastMovementAt = -Infinity;
+  }
+
+  accept(direction, confidence, now = Date.now()) {
+    if (confidence < this.minimumConfidence) {
+      this.lastDirection = null;
+      this.repetitions = 0;
+      return null;
+    }
+    if (direction === this.lastDirection) this.repetitions += 1;
+    else {
+      this.lastDirection = direction;
+      this.repetitions = 1;
+    }
+    if (
+      this.repetitions < this.stablePredictions
+      || now - this.lastMovementAt < this.intervalMs
+    ) return null;
+
+    this.lastMovementAt = now;
+    this.repetitions = 0;
+    return direction;
+  }
+}
+
+class WebcamController {
+  constructor({ video, gate, onDirection, onStatus, onSamples, onPrediction }) {
+    this.video = video;
+    this.gate = gate;
+    this.onDirection = onDirection;
+    this.onStatus = onStatus;
+    this.onSamples = onSamples;
+    this.onPrediction = onPrediction;
+    this.examples = [[], [], [], []];
+    this.directions = ["up", "left", "down", "right"];
+    this.isPredicting = false;
+  }
+
+  async start() {
+    if (!globalThis.tf || !globalThis.mobilenet) {
+      throw new Error("TensorFlow.js ou MobileNet não foi carregado.");
+    }
+    this.onStatus("Solicitando acesso à câmera…");
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "user", width: 224, height: 224 },
+      audio: false,
+    });
+    this.video.srcObject = stream;
+    await this.video.play();
+    this.onStatus("Carregando MobileNet…");
+    this.featureExtractor = await mobilenet.load({ version: 2, alpha: 0.5 });
+    const warmup = this.extractFeatures();
+    warmup.dispose();
+    this.onStatus("Câmera pronta. Colete exemplos para cada direção.");
+  }
+
+  extractFeatures() {
+    return tf.tidy(() => this.featureExtractor.infer(this.video, true).clone());
+  }
+
+  addExample(label) {
+    if (!this.featureExtractor) {
+      throw new Error("Ative a câmera antes de coletar exemplos.");
+    }
+    this.examples[label].push(this.extractFeatures());
+    this.onSamples(this.examples.map((items) => items.length));
+  }
+
+  async train() {
+    if (this.examples.some((items) => items.length < 3)) {
+      throw new Error("Colete ao menos 3 exemplos de cada direção.");
+    }
+    this.stopPredicting();
+    this.model?.dispose();
+    const tensors = this.examples.flat();
+    const labels = this.examples.flatMap((items, label) => items.map(() => label));
+    const xs = tf.concat(tensors);
+    const ys = tf.oneHot(tf.tensor1d(labels, "int32"), this.directions.length);
+    this.model = tf.sequential({
+      layers: [
+        tf.layers.dense({
+          inputShape: xs.shape.slice(1),
+          units: 64,
+          activation: "relu",
+          kernelInitializer: "varianceScaling",
+        }),
+        tf.layers.dense({
+          units: this.directions.length,
+          activation: "softmax",
+          kernelInitializer: "varianceScaling",
+        }),
+      ],
+    });
+    this.model.compile({
+      optimizer: tf.train.adam(0.0001),
+      loss: "categoricalCrossentropy",
+      metrics: ["accuracy"],
+    });
+    this.onStatus("Treinando o controle…");
+    await this.model.fit(xs, ys, {
+      epochs: 20,
+      batchSize: Math.min(16, labels.length),
+      shuffle: true,
+      callbacks: {
+        onEpochEnd: (epoch, logs) => {
+          const accuracy = logs.acc ?? logs.accuracy ?? 0;
+          this.onStatus(
+            `Treinando: ${epoch + 1}/20 · precisão ${(accuracy * 100).toFixed(0)}%`,
+          );
+        },
+      },
+    });
+    xs.dispose();
+    ys.dispose();
+    this.onStatus("Treino concluído. Ative o controle por câmera.");
+  }
+
+  togglePredicting() {
+    if (!this.model) {
+      throw new Error("Treine o controle antes de jogar com a câmera.");
+    }
+    this.isPredicting = !this.isPredicting;
+    if (this.isPredicting) {
+      this.onStatus("Controle por câmera ativo.");
+      this.predict();
+    } else this.onStatus("Controle por câmera pausado.");
+    return this.isPredicting;
+  }
+
+  stopPredicting() {
+    this.isPredicting = false;
+  }
+
+  async predict() {
+    while (this.isPredicting) {
+      const features = this.extractFeatures();
+      const prediction = this.model.predict(features);
+      const probabilities = await prediction.data();
+      features.dispose();
+      prediction.dispose();
+      let label = 0;
+      for (let index = 1; index < probabilities.length; index += 1) {
+        if (probabilities[index] > probabilities[label]) label = index;
+      }
+      const direction = this.directions[label];
+      const confidence = probabilities[label];
+      this.onPrediction(direction, confidence);
+      const command = this.gate.accept(direction, confidence);
+      if (command) this.onDirection(command);
+      await tf.nextFrame();
+    }
+  }
+}
+
 const generator = new LevelGenerator();
 const board = document.querySelector("[data-board]");
 const status = document.querySelector("[data-status]");
@@ -273,4 +438,59 @@ window.addEventListener("keydown", (event) => {
   if (!direction) return;
   event.preventDefault();
   session.move(direction);
+});
+
+const cameraStatus = document.querySelector("[data-camera-status]");
+const cameraToggle = document.querySelector("[data-camera-control]");
+const sampleButtons = document.querySelectorAll("[data-sample]");
+const webcamController = new WebcamController({
+  video: document.querySelector("[data-webcam]"),
+  gate: new CameraCommandGate(),
+  onDirection: (direction) => session.move(direction),
+  onStatus: (message) => { cameraStatus.textContent = message; },
+  onSamples: (counts) => {
+    sampleButtons.forEach((button) => {
+      button.querySelector("span").textContent = counts[button.dataset.sample];
+    });
+  },
+  onPrediction: (direction, confidence) => {
+    cameraStatus.textContent = `${direction} · ${(confidence * 100).toFixed(0)}%`;
+  },
+});
+
+async function cameraAction(action) {
+  try {
+    await action();
+  } catch (error) {
+    cameraStatus.textContent = error.message;
+  }
+}
+
+document.querySelector("[data-camera-start]").addEventListener("click", (event) => {
+  event.currentTarget.disabled = true;
+  cameraAction(async () => {
+    await webcamController.start();
+    sampleButtons.forEach((button) => { button.disabled = false; });
+    document.querySelector("[data-camera-train]").disabled = false;
+  });
+});
+
+sampleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    cameraAction(() => webcamController.addExample(Number(button.dataset.sample)));
+  });
+});
+
+document.querySelector("[data-camera-train]").addEventListener("click", () => {
+  cameraAction(async () => {
+    await webcamController.train();
+    cameraToggle.disabled = false;
+  });
+});
+
+cameraToggle.addEventListener("click", () => {
+  cameraAction(() => {
+    const active = webcamController.togglePredicting();
+    cameraToggle.textContent = active ? "Pausar câmera" : "Jogar com a câmera";
+  });
 });
