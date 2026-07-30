@@ -4,6 +4,13 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 
 ## 2026-07-30
 
+### 13:00:04 -03:00
+
+- Identificado que o movimento impossível restante ocorria na transição automática do último quadro para o primeiro ao reiniciar o GIF.
+- Removido o loop da demonstração: a animação agora executa uma vez e permanece por 2,5 segundos no estado final de vitória.
+- Adicionado um teste automatizado que impede a reintrodução da extensão de repetição no GIF.
+- Atualizados os dois READMEs e os badges para refletirem os 14 testes automatizados.
+
 ### 12:55:59 -03:00
 
 - Corrigida a animação de gameplay que aparentava executar um movimento impossível por ter quadros intermediários omitidos.

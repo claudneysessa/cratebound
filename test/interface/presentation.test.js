@@ -65,3 +65,11 @@ test("usa mídias próprias para a vitrine do GitHub sem duplicar o GIF", async 
   );
   assert.doesNotMatch(readme, /docs\/assets\/gameplay\.gif/);
 });
+
+test("encerra a demonstração na vitória sem reiniciar o tabuleiro", async () => {
+  const gameplay = await readFile(
+    new URL("../../docs/assets/cratebound-gameplay.gif", import.meta.url),
+  );
+
+  assert.equal(gameplay.includes(Buffer.from("NETSCAPE2.0")), false);
+});

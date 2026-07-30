@@ -7,7 +7,7 @@
 [![CI](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml/badge.svg)](https://github.com/claudneysessa/cratebound/actions/workflows/ci.yml)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.22-FF6F00?logo=tensorflow&logoColor=fff)](https://www.tensorflow.org/js)
-[![Testes](https://img.shields.io/badge/testes-13%20aprovados-72d892)](#engenharia-de-qualidade)
+[![Testes](https://img.shields.io/badge/testes-14%20aprovados-72d892)](#engenharia-de-qualidade)
 
 [Jogar agora](https://claudneysessa.github.io/cratebound/) · [English](README.md) · [Arquitetura](docs/ARCHITECTURE.md) · [Como contribuir](CONTRIBUTING.md)
 
@@ -104,7 +104,7 @@ Os testes automatizados cobrem:
 npm test
 ```
 
-Resultado esperado: **13 testes aprovados** com o test runner nativo do Node.js.
+Resultado esperado: **14 testes aprovados** com o test runner nativo do Node.js.
 O GitHub Actions executa a suíte a cada envio e pull request.
 
 ## Executar localmente
