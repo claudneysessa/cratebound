@@ -101,6 +101,25 @@ O primeiro teste descreve somente o sucesso mínimo: com jogador, caixa e buraco
 - Ao vencer, a mensagem é exibida e a próxima fase aparece automaticamente.
 - A versão modular e os três painéis do CodePen foram mantidos equivalentes.
 
+### Ciclo 8 — comandos estáveis da câmera
+
+- **Vermelho:** o teste falhou porque o filtro ainda não existia.
+- **Verde:** o filtro libera somente direções com confiança mínima de 80%, três previsões iguais e intervalo de 400 ms.
+- **SOLID:** o filtro não conhece câmera, TensorFlow, jogo ou interface; ele recebe somente direção, confiança e tempo.
+
+## Controle pela câmera
+
+O controle seguirá o exemplo oficial Webcam Pac-Man do TensorFlow.js:
+
+1. Carregar MobileNet no navegador.
+2. Ativar a webcam somente após ação do usuário.
+3. Coletar exemplos visuais para cima, esquerda, baixo e direita.
+4. Usar as ativações internas do MobileNet como características.
+5. Treinar um pequeno classificador para as quatro direções.
+6. Converter previsões estáveis em movimentos do jogo.
+
+Imagens e exemplos permanecem na memória do navegador e não são enviados pelo projeto a um servidor.
+
 ## Como usar no CodePen
 
 1. Crie um novo Pen.

@@ -162,3 +162,22 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Definido que commits periódicos pertencem ao fluxo normal e não exigem nova autorização a cada ciclo.
 - Mantida a regra independente que bloqueia commits de projeto sem o `CHANGELOG.md`.
 - Executados os 7 testes antes do commit da correção; todos passaram.
+
+### 21:14:21 -03:00
+
+- Estudado o exemplo oficial Webcam Pac-Man do TensorFlow.js e definida a adaptação para quatro direções.
+- Iniciado o oitavo ciclo de TDD com o teste do filtro de comandos da câmera.
+- Especificado que somente três previsões consecutivas, confiáveis e espaçadas podem produzir movimento.
+- Documentados no `README.md` o fluxo de transferência de aprendizado e a privacidade dos quadros da câmera.
+
+### 21:14:50 -03:00
+
+- Executado `npm test` para a fase vermelha do oitavo ciclo: 7 testes passaram e o novo teste falhou porque o filtro ainda não existia.
+- Criado o filtro independente `CameraCommandGate`.
+- Implementados limiar de confiança, estabilidade consecutiva e intervalo mínimo entre movimentos.
+- Atualizado o `README.md` com o resultado e a responsabilidade isolada do componente.
+
+### 21:15:12 -03:00
+
+- Executado `npm test` para a fase verde do oitavo ciclo: os 8 testes passaram.
+- Preparado o commit periódico do filtro de comandos antes da integração com TensorFlow.js.
