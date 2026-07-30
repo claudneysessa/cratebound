@@ -1,0 +1,159 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-rounded, "Segoe UI", sans-serif;
+  background: #121513;
+  color: #f3f2e9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(circle at 20% 10%, #27372e 0, transparent 35%), #121513;
+}
+
+.game {
+  width: min(100%, 680px);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #9fd8ad;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 3.4rem);
+  line-height: 1;
+}
+
+.status {
+  min-height: 24px;
+  color: #c6cbc7;
+}
+
+.stage {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 5px 11px;
+  border: 1px solid #506057;
+  border-radius: 999px;
+  color: #9fd8ad;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--columns, 8), 1fr);
+  aspect-ratio: 1;
+  margin: 24px auto;
+  padding: 10px;
+  gap: 5px;
+  border: 2px solid #4a554d;
+  border-radius: 18px;
+  background: #202622;
+  box-shadow: 0 24px 70px #0008;
+}
+
+.cell {
+  position: relative;
+  border-radius: 8px;
+  background: #2b322d;
+}
+
+.obstacle {
+  background: linear-gradient(135deg, #535b55 25%, #464d48 25% 50%, #535b55 50% 75%, #464d48 75%);
+  background-size: 16px 16px;
+  box-shadow: inset 0 0 0 2px #626b64;
+}
+
+.hole::before, .box::before, .player::after {
+  content: "";
+  position: absolute;
+  inset: 14%;
+}
+
+.hole::before {
+  border-radius: 50%;
+  background: #090b09;
+  box-shadow: inset 0 0 0 4px #080908, 0 0 0 2px #657067;
+}
+
+.box::before {
+  border-radius: 7px;
+  background: #e69c48;
+  box-shadow: inset 0 0 0 4px #ffbd68, 0 5px 0 #9b5d25;
+}
+
+.player::after {
+  inset: 32%;
+  border-radius: 50%;
+  background: #8de4a2;
+  box-shadow: 0 0 0 6px #8de4a21f, 0 5px 12px #0007;
+}
+
+.controls {
+  display: grid;
+  grid-template-areas: ". up ." "left down right";
+  grid-template-columns: repeat(3, 64px);
+  justify-content: center;
+  gap: 8px;
+}
+
+.controls button, .reset {
+  border: 1px solid #56635a;
+  color: #f7f8f4;
+  background: #29302b;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.controls button {
+  width: 64px;
+  height: 54px;
+  border-radius: 13px;
+  font-size: 1.5rem;
+}
+
+.controls button:hover, .controls button:focus-visible,
+.reset:hover, .reset:focus-visible {
+  border-color: #9fd8ad;
+  background: #354239;
+  outline: none;
+}
+
+.up { grid-area: up; }
+.left { grid-area: left; }
+.down { grid-area: down; }
+.right { grid-area: right; }
+
+.reset {
+  margin-top: 18px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+}
+
+.hint {
+  margin: 12px 0 0;
+  color: #7f8981;
+  font-size: .82rem;
+}
+
+.won .board {
+  border-color: #8de4a2;
+  box-shadow: 0 0 40px #8de4a229, 0 24px 70px #0008;
+}

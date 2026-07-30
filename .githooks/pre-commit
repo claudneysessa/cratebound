@@ -1,0 +1,17 @@
+#!/bin/sh
+
+changed_files="$(git diff --cached --name-only --diff-filter=ACMR)"
+
+if [ -z "$changed_files" ]; then
+  exit 0
+fi
+
+relevant_files="$(printf '%s\n' "$changed_files" | grep -Ev '^(CHANGELOG\.md|README\.md|AGENTS\.md)$' || true)"
+
+if [ -n "$relevant_files" ] && ! printf '%s\n' "$changed_files" | grep -qx 'CHANGELOG.md'; then
+  echo "Commit bloqueado: alterações do projeto exigem uma atualização do CHANGELOG.md."
+  exit 1
+fi
+
+exit 0
+
