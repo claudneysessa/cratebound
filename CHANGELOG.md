@@ -48,6 +48,11 @@ Todas as alterações relevantes deste projeto serão registradas neste arquivo.
 - Confirmados o título e o cabeçalho `Cratebound` na publicação HTTPS, sem erros no console.
 - Confirmadas com sucesso a matriz de integração contínua e a implantação do GitHub Pages.
 
+### 12:13:57 -03:00
+
+- Atualizadas `actions/checkout` e `actions/setup-node` para as versões principais oficiais atuais.
+- Removidos da integração contínua os avisos evitáveis de execução interna em Node.js descontinuado.
+
 ## 2026-07-29
 
 ### 20:53:45 -03:00
